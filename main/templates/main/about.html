@@ -1,0 +1,109 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block main_content %}
+
+<main>
+<section
+	class="breadcrumb-area d-flex align-items-center"
+	style="background-image:url('{% get_static_prefix %}main/assets/img/testimonial/test-bg.png')">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-6 col-lg-6">
+				<div class="breadcrumb-wrap text-left">
+					<div class="breadcrumb-title mb-30">
+						<h2>About Us</h2>
+						<p>Build strong & impressive websites using our premade templates</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6">
+				<div class="breadcrumb-wrap">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">About</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section id="about" class="about-area about-p pt-100 pb-100 p-relative">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 col-md-12 col-sm-12 pr-30">
+				<div class="s-about-img p-relative"><img
+						src="{% static 'main/assets/img/features/about-img2.png' %}" alt="img"></div>
+			</div>
+			<div class="col-lg-6 col-md-12 col-sm-12">
+				<div class="about-content s-about-content">
+					<div class="about-title second-atitle pb-20">
+						<h5><span class="line"><img src="{% static 'main/assets/img/bg/circle_right.png' %}"
+									alt="circle_right"></span>About Us</h5>
+						<h2>Get Your Best Business Solution With Zebizz</h2>
+					</div>
+					<p>Quisque vitae accumsan quam. In dignissim vitae quam interdum ullamcorper. Aliquam
+						imperdiet,dolor et maximus auctor, turpis dui blandit sem, condimentum aliquam risus sapien
+						hendreritelit. Curabitur facilisis leo sit amet diam lacinia, sed feugiat neque pellentesque.
+					</p>
+					<ul class="ab-ul">
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">User Research</div>
+						</li>
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">Customize Options</div>
+						</li>
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">Audit & Evaluation Servicet</div>
+						</li>
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">Finance Consumer Markets</div>
+						</li>
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">UI/UX Development</div>
+						</li>
+						<li>
+							<div class="icon"><i class="fal fa-check"></i></div>
+							<div class="text pt-10">24/7 Online Support</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="make-call-area" class="make-call-area p-relative">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="section-title cta-title pt-180 mb-20">
+					<h5><span class="line"><img src="{% static 'main/assets/img/bg/circle_left.png' %}"
+								alt="circle_right"></span>Make Call</h5>
+					<h2>Get A Free Counsultancy For Your Business Now !</h2>
+				</div>
+				<p>Duis iaculis mi vel tincidunt pretium. Ut tincidunt augue neque, vitae consectetur odio varius
+					a.Donec vel turpis et nisi pellentesque varius. Sed et dolor consequat, vulputate nunc a,
+					molestieorci.</p>
+				<div class="call-number mt-20 mb-15">
+					<div class="icon"><img src="{% static 'main/assets/img/icon/call-icon.png' %}"
+							alt="circle_right"></div>
+					<h2>{{ config.phone }}</h2>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 d-none d-lg-block">
+				<div class="img"><img src="{% static 'main/assets/img/bg/features-lg-img.png' %}"
+						alt="features-lg-img"></div>
+			</div>
+		</div>
+	</div>
+</section>
+</main>
+{% endblock main_content %}

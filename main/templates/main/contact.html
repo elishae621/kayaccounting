@@ -1,0 +1,163 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main_content %}
+
+
+<main>
+    <section class="breadcrumb-area d-flex align-items-center"
+        style="background-image:url('{% get_static_prefix %}main/assets/img/testimonial/test-bg.png')">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title mb-30">
+                            <h2>Contact Us</h2>
+                            <p>Build strong & impressive websites using our premade templates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- services-area -->
+    <section id="services" class="services-area pt-100 pb-70 fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-align mb-50 text-center">
+                        <h5><span class="line2"> <img src="{% static 'main/assets/img/bg/circle_right.png' %}"
+                                    alt="circle_right"></span> Contact Us <span class="line3"> <img
+                                    src="{% static 'main/assets/img/bg/circle_left.png' %}" alt="circle_left"></span>
+                        </h5>
+                        <h2>
+                            Catch Us Here
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="services-box text-center">
+                        <div class="services-icon">
+                            <img src="{% static 'main/assets/img/icon/cn-icon1.png' %}" alt="icon01">
+                        </div>
+                        <div class="services-content2">
+                            <h5>Email Address</h5>
+                            <p>{{ config.email }}</p>
+                            <a href="{% url 'services' %}" class="ss-btn2"><i class="fal fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="services-box text-center">
+                        <div class="services-icon">
+                            <img src="{% static 'main/assets/img/icon/cn-icon2.png' %}" alt="icon01">
+                        </div>
+                        <div class="services-content2">
+                            <h5>Phone Number</h5>
+                            <p>{{ config.phone }}</p>
+                            <a href="{% url 'services' %}" class="ss-btn2"><i class="fal fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="services-box text-center">
+                        <div class="services-icon">
+                            <img src="{% static 'main/assets/img/icon/cn-icon3.png' %}" alt="icon01">
+                        </div>
+                        <div class="services-content2">
+                            <h5>Office Address</h5>
+                            <p>{{ config.address }}</p>
+                            <a href="{% url 'services' %}" class="ss-btn2"><i class="fal fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services-area-end -->
+    <!-- contact-map-area -->
+    <section id="contact-map" class="contact-map p-relative fix">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d317893.1993960357!2d-0.119554!3d51.503297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sus!4v1609780976836!5m2!1sen!2sus"
+                        width="100%" height="650" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-map-area -->
+    <!-- contact-area -->
+    <section id="contact" class="contact-area contact-bg pt-100 pb-100 p-relative fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="section-title mb-60">
+                        <h5><span class="line"> <img src="{% static 'main/assets/img/bg/circle_right.png' %}"
+                                    alt="circle_right"></span> Contact</h5>
+                        <h2>Get In Touch With Us</h2>
+                    </div>
+                    <div role="form" class="cf" id="cf-f5-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response"></div>
+                        <form action="{% url 'contact' %}" method="post" class="cf-form" novalidate="novalidate">
+                        {% csrf_token %}
+                            <div class="contact-form ">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-name mb-20"><span
+                                                class="cf-form-control-wrap your-name">
+                                                {% render_field cf_form.name size="40" class="cf-form-control cf-text" aria-invalid="false" required="required"%}
+                                            </span></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-email mb-20"><span
+                                                class="cf-form-control-wrap your-email">
+                                                {% render_field cf_form.email size="40"class="cf-form-control cf-text cf-email cf-validates-as-required cf-validates-as-email" aria-required="true" aria-invalid="false" required="required"%}
+                                            </span></div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-subject mb-20"><span
+                                                class="cf-form-control-wrap your-phone">
+                                                {% render_field cf_form.phone size="40" class="cf-form-control cf-text" aria-invalid="false" required="required"%}
+                                            </span></div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-message mb-45"><span
+                                                class="cf-form-control-wrap your-message">
+                                                {% render_field cf_form.content cols="40" rows="10" class="cf-form-control cf-textarea" aria-invalid="false" required="required"%}
+                                            </span>
+                                        </div>
+                                        <div class="slider-btn"><input type="submit" value="Send Message"
+                                                class="cf-form-control cf-submit btn ss-btn active" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cf-response-output cf-display-none"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock main_content %}

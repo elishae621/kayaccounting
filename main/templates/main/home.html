@@ -1,0 +1,212 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block main_content %}
+<main>
+  <section id="home" class="slider-area2 fix p-relative">
+    <div class="slider-active">
+      <div class="single-slider slider-bg d-flex align-items-center"
+        style="background-image:url('{% get_static_prefix %}main/assets/img/slider/slider_img02.png')">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="slider-content s-slider-content text2">
+                <h5>Kay Accounting Clinic</h5>
+                <h2>Your Accounting solution
+                </h2>
+                <p>Interdum et malesuada fames ac ante
+                  ipsum primis in faucibus. Sed vehicula, ipsum at molestie tincidunt elementum
+                  volutpat.</p>
+                <div class="slider-btn mt-40"><a href="{% url 'services' %}" class=" btn ss-btn active mr-15">Our
+                    Services <i class="fal fa-arrow-right"></i></a></div>
+              </div>
+            </div>
+            <div class="col-lg-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about-area about-p pt-100 pb-100 p-relative">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 col-sm-12 pr-30">
+          <div class="s-about-img p-relative"><img
+              src="{% static 'main/assets/img/new/bookkeeping-vs-accounting.jpg' %}" alt="img">
+            <div class="about-text second-about"><span>5 <sub>+</sub></span>
+              <p>Years Experience</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="about-content s-about-content">
+            <div class="section-title second-atitle pb-35">
+              <h5><span class="line2"><img src="{% static 'main/assets/img/bg/circle_left.png' %}"
+                    alt="circle_right"></span>About Us</h5>
+              <h2>Get Your Best Business Solution</h2>
+            </div>
+            <div class="about-content3">
+              <div class="row">
+                <div class="col-md-6">
+                  <p>As one of the world's largest ITService Providers with over 120 engineers and
+                    IT support staff are ready to help.</p>
+                  <div class="slider-btn mt-10"><a href="{% url 'about' %}" class="btn ss-btn active">Request Demo <i
+                        class="fal fa-arrow-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <ul class="green">
+                    <li>Finance & estructuring</li>
+                    <li>Estate Planning Service</li>
+                    <li>Audit & Evaluation Service</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="services" class="services-area pb-50 fix">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12">
+          <ul class="services-bd-box">
+            <li>
+              <div class="services-bd-01">
+                <div class="services-icon">
+                  <img src="{% static 'main/content/se-icon4.png' %}" alt="img">
+                </div>
+                <div class="services-icon2">
+                  <img src="{% static 'main/content/se-icon4-af.png' %}" alt="img">
+                </div>
+                <div class="services-content2">
+                  <h5>Service 1</h5>
+                  <p>some short description on service 1</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="services-bd-01">
+                <div class="services-icon">
+                  <img src="{% static 'main/content/se-icon5.png' %}" alt="img">
+                </div>
+                <div class="services-icon2">
+                  <img src="{% static 'main/content/se-icon5-af.png' %}" alt="img">
+                </div>
+                <div class="services-content2">
+                  <h5>Service 2</h5>
+                  <p>some short description on service 2</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="services-bd-01">
+                <div class="services-icon">
+                  <img src="{% static 'main/content/se-icon6.png' %}" alt="img">
+                </div>
+                <div class="services-icon2">
+                  <img src="{% static 'main/content/se-icon6-af.png' %}" alt="img">
+                </div>
+                <div class="services-content2">
+                  <h5>Service 3</h5>
+                  <p>some short description on service 3</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="services-bd-01">
+                <div class="services-icon">
+                  <img src="{% static 'main/content/se-icon7.png' %}" alt="img">
+                </div>
+                <div class="services-icon2">
+                  <img src="{% static 'main/content/se-icon7-af.png' %}" alt="img">
+                </div>
+                <div class="services-content2">
+                  <h5>Service 4</h5>
+                  <p>some short description on service 4</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="about-content s-about-content pl-30">
+            <div class="about-title second-atitle pb-20">
+              <h5><span class="line"><img src="{% static 'main/assets/img/bg/circle_right.png' %}"
+                    alt="circle_right"></span>Services</h5>
+              <h2>We Provide Services Grow Your Business</h2>
+            </div>
+            <p>Etiam tincidunt massa non vestibulum. Nam ut metus id lacus pulvinar dignissim eu quis
+              magna. Ut vel velit odio. Maecenas purus dolor, finibus sed gravida in, tincidunt nec
+              leo. Nunc tincidunt massa volutpat enim feugiat faucibus. Nullam erat lorem, vehicula
+              quis sem sed, dictum semper mauris. Proin sed dolor id justo sollicitudin tempus.</p>
+            <p>Nunc ultricies non odio vitae fringilla. Ut quis quam ac purus egestas maximus eget eu
+              sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
+              condimentum ex eu pulvinar sollicitudin. Integer turpis est, varius et mattis eu,
+              porttitor vel nisi.</p>
+            <p>Aenean efficitur aliquam neque, non malesuada ex placerat ac. Duis vel tortor a felis
+              venenatis egestas vehicula et eros.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact-area contact-bg p-relative fix"
+    style="background-image:url('{{ STATIC_PREFIX }}main/assets/img/bg/contact-bg.html')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <div class="contact-bg02">
+            <div class="section-title mb-30">
+              <h3>Get In Touch With Us</h3>
+              <p>Our deep pool of certified engineers and IT staff are ready to help you to keep your
+                IT business safe & ensure high availability.</p>
+            </div>
+            <div role="form" class="cf" id="cf-f5-o1" lang="en-US" dir="ltr">
+              <div class="screen-reader-response"></div>
+              <form action="{% url 'contact' %}" method="post" class="cf-form" novalidate="novalidate">
+              {% csrf_token %}
+                <div class="contact-form ">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="contact-field p-relative c-name mb-20"><span class="cf-form-control-wrap your-name">
+                          {% render_field cf_form.name size="40" class="cf-form-control cf-text" aria-invalid="false" required="required" %}
+                        </span></div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="contact-field p-relative c-email mb-20"><span class="cf-form-control-wrap your-email">
+                          {% render_field cf_form.email size="40"class="cf-form-control cf-text cf-email cf-validates-as-required cf-validates-as-email" aria-required="true" required="required" aria-invalid="false" %}
+                        </span></div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="contact-field p-relative c-subject mb-20"><span
+                          class="cf-form-control-wrap your-phone">
+                          {% render_field cf_form.phone size="40" class="cf-form-control cf-text" aria-invalid="false" required="required" %}
+                        </span></div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="contact-field p-relative c-message mb-45"><span
+                          class="cf-form-control-wrap your-message">
+                          {% render_field cf_form.content cols="40" rows="10" class="cf-form-control cf-textarea" aria-invalid="false" required="required"%}
+                        </span>
+                      </div>
+                      <div class="slider-btn"><input type="submit" value="Send Message"
+                          class="cf-form-control cf-submit btn ss-btn active" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cf-response-output cf-display-none"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock main_content %}

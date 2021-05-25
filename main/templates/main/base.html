@@ -1,0 +1,192 @@
+{% load static %}
+{% load widget_tweaks %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="{% static 'main/content/favicon.ico' %}">
+  <title>Key Accounting Clinic</title>
+  <meta name='robots' content='max-image-preview:large' />
+  <link rel='stylesheet' href="{% static 'main/includes/css/dist/block-library/style.min9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/bootstrap.min9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/fontawesome/css/all.min9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/font-flaticon/flaticon9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/dripicons9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/slick9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/meanmenu9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/default9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/style9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/responsive9f31.css' %}" media='all' />
+  <link rel='stylesheet' href="{% static 'main/assets/css/style53a2.css' %}" media='all' />
+  <script src="{% static 'main/includes/js/jquery/jquery.min9d52.js' %}"></script>
+  <script src="{% static 'main/includes/js/jquery/jquery-migrate.mind617.js' %}"></script>
+  <style title="dynamic-css" class="options-output">
+    body {
+      color: #333
+    }
+  </style>
+</head>
+
+<body
+  class="page-template page-template-page-templates page-template-home-2-template page-template-page-templateshome-2-template-php page page-id-92">
+  <header class="header-area header-two">
+    <div id="header-sticky" class="menu-area2">
+      <div class="container-fluid">
+        <div class="second-menu">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-4 text-center">
+              <div class="logo"><a href="{% url 'home' %}"><img
+                    src="{% static 'main/assets/img/logo/logo.svg' %}" alt="logo"></a></div>
+            </div>
+            <div class="col-xl-8 col-lg-8 ">
+              <div class="main-menu text-xl-center">
+                <nav id="mobile-menu">
+                  <ul class="">
+                    <li id="menu-item-159"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-159 ">
+                      <a title="Home" class="home" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li id="menu-item-163"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-163">
+                      <a title="About Us" class="about" href="{% url 'about' %}">About Us</a></li>
+                    <li id="menu-item-176"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-176 ">
+                      <a title="Services" class="services" href="{% url 'services' %}">Services</a>
+                    </li>
+                    <li id="menu-item-189"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-189">
+                      <a title="Contact" class="contact" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mobile-menu mt-0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% block main_content %}
+  {% endblock main_content %}
+
+  <footer class="footer-bg footer-p pt-90"
+    style="background:url('{{ STATIC_PREFIX }}main/assets/img/bg/f-bg.png'); background-size:cover;">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-6 col-sm-6">
+            <div>
+              <div class="textwidget">
+                <div class="footer-widget mb-30">
+                  <div class="flog mb-25"><a href="{% url 'home' %}"><img loading="lazy"
+                        class="alignnone size-full footer-image"
+                        src="{% static 'main/assets/img/logo/default-monochrome-white.svg' %}" alt="" width="171"
+                        height="47" /></a></div>
+                  <p>Aliquam imperdiet, dolor et maximus auctor, turpis dui blandit sem, condimentum
+                    aliquam</p>
+                  <div class="f-contact">
+                    <ul>
+                      <li><i class="icon far fa-clock"></i><br /><a
+                          href="tel:{{ config.phone }}">{{ config.phone }}</a><br /></li>
+                      <li><i class="icon dripicons-mail"></i><br /><a 
+                          href="mailto:{{ config.email }}">{{ config.email }}</a><br /></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div>
+              <div class="textwidget">
+                <div class="footer-widget mb-30">
+                  <div class="f-widget-title">
+                    <h5>Our Links</h5>
+                  </div>
+                  <div class="footer-link">
+                    <ul>
+                      <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i>About
+                          Us</a></li>
+                      <li><a href="{% url 'services' %}"><i
+                            class="fas fa-chevron-right"></i>Career</a></li>
+                      <li><a href="{% url 'contact' %}"><i
+                            class="fas fa-chevron-right"></i>Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div>
+              <div class="textwidget">
+                <div class="footer-widget mb-30">
+                  <div class="f-widget-title">
+                    <h5>Our Office</h5>
+                  </div>
+                  <div class="f-contact">
+                    <ul>
+                      <li><i class="icon far fa-clock"></i><br /><span>{{ config.address }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-sm-6">
+            <div>
+              <div class="textwidget">
+                <div class="footer-widget mt-80">
+                  <div class="footer-social mt-30"><a href="{{ config.facebook }}"><i
+                        class="fab fa-facebook-f"></i></a><br /><a
+                      href="{{ config.twitter }}"><i class="fab fa-twitter"></i></a><br /><a
+                      href="{{ config.instagram }}"><i class="fab fa-instagram"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-wrap">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div>
+              <div class="textwidget">
+                <ul>
+                  <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                  <li><a href="{% url 'terms' %}">Terms Of Service</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">© 2021 Kay Accounting Clinic. <a target='_blank'
+              href="https://www.elishae.me/">Web by Elisha</a> </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'main/assets/js/vendor/modernizr-3.5.0.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/vendor/jquery-1.12.4.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/popper.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/bootstrap.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/one-page-nav-min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/jquery.counterup.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/jquery.scrollUp.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/jquery.meanmenu.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/jquery-validation.js' %}"></script>
+  <script src="{% static 'main/assets/js/main9f31.js' %}"></script>
+  </body>
+
+  </html>
