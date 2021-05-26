@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from django.core.mail import EmailMultiAlternatives
 from kayaccounting.settings.components import conf_location
 from main.models import ContactMessage
+from django.conf import settings
 
 
 import json
@@ -15,7 +16,7 @@ def notify_me_of_registration(sender, instance, created, **kwargs):
         title = 'someone has sent a message'
         text_message = "check the site and reply the user asap"
         from_email = config['MAIL_USERNAME']
-        to_email = config['admins']
+        to_email = settings.ADMINS
         msg = EmailMultiAlternatives(
             title, text_message, from_email, to_email)
         msg.send(fail_silently=True)
@@ -27,7 +28,7 @@ def send_confirmation_for_message(sender, instance, created, **kwargs):
         title = 'Kay Accounting Clinic'
         text_message = "Thank you for your interest in Kay Accounting Clinic.\n\nThis is to acknowledge receipt of your e-mail. Where applicable, a reply will be sent to you as soon as possible.\n\nRegards."
         from_email = config['MAIL_USERNAME']
-        to_email = instance.email
+        to_email = [instance.email]
         msg = EmailMultiAlternatives(
             title, text_message, from_email, to_email)
         msg.send(fail_silently=True)
