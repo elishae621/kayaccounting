@@ -20,7 +20,7 @@ from django.contrib.sitemaps import views
 from django.urls import path, include 
 from kayaccounting.sitemaps import StaticViewSitemap
 from main.views import (
-    AboutView, ContactView, FaqView, HomeView, PrivacyView, ServicesView, TermsView,
+    AboutView, ContactView, HomeView, PrivacyView, ServicesView, TermsView,
 )
 
 handler404 = 'main.views.error_404'

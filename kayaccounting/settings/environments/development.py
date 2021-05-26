@@ -47,7 +47,9 @@ INTERNAL_IPS = [
 STATICFILES_DIRS: List[str] = []
 
 
-MIDDLEWARE += ()
+MIDDLEWARE += (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
 
 
 # django-extra-checks 

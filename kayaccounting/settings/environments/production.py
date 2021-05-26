@@ -8,6 +8,8 @@ from pathlib import PurePath
 
 from kayaccounting.settings.components import config, BASE_DIR
 
+
+
 # Production flags:
 # https://docs.djangoproject.com/en/3.2/howto/deployment/
 

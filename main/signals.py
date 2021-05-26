@@ -1,11 +1,12 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.mail import EmailMultiAlternatives
+from kayaccounting.settings.components import conf_location
 from main.models import ContactMessage
 
 
 import json
-with open('/etc/kayaccounting.json') as config_json:
+with open(conf_location) as config_json:
     config = json.load(config_json)
 
 @receiver(post_save, sender=ContactMessage)

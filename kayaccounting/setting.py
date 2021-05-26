@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import json
+from kayaccounting.settings.components import conf_location
 from pathlib import Path, PurePath
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-with open(BASE_DIR / 'config.json') as config_json:
+with open(conf_location) as config_json:
     config = json.load(config_json)
 
 # Quick-start development settings - unsuitable for production
