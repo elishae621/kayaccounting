@@ -24,7 +24,15 @@
                     Services <i class="fal fa-arrow-right"></i></a></div>
               </div>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="col-md-10 col-lg-10 messages mt-3">
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}" role="alert">
+                  {{message}}
+                </div>
+                {% endfor %}
+              </div>
+</div>
           </div>
         </div>
       </div>
@@ -176,6 +184,7 @@
                 <div class="contact-form ">
                   <div class="row">
                     <div class="col-lg-6">
+                      <input class="d-none" type='text' value='{{request.path}}' name='url' hidden disabled >
                       <div class="contact-field p-relative c-name mb-20"><span class="cf-form-control-wrap your-name">
                           {% render_field cf_form.name size="40" class="cf-form-control cf-text" aria-invalid="false" required="required" %}
                         </span></div>

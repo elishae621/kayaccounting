@@ -14,7 +14,7 @@ import json
 from pathlib import Path, PurePath
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-with open('/etc/kayaccounting.json') as config_json:
+with open(BASE_DIR / 'kay_config.json') as config_json:
     config = json.load(config_json)
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,7 @@ SECRET_KEY = config['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.162.137.57',]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,10 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+    # Better debug:
+    'debug_toolbar',
+    
+    # django-extra-checks:
+    'extra_checks',
     'widget_tweaks',
 
     'main.apps.MainConfig',
+]
+
+
+# internal_ips for debug_toolbar 
+INTERNAL_IPS = [ 
+    '127.0.0.1',
+    '139.162.137.57',
 ]
 
 SITE_ID = 1
@@ -50,6 +61,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,7 +99,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'kayaccounting',
-        'USER': 'adminuser',
+        'USER': 'postgres',
         'PASSWORD': config['DATABASE_PASSWORD'],
         'HOST': '127.0.0.1',
         'POST': '5432',
@@ -156,3 +168,72 @@ DEFAULT_TO_EMAIL = EMAIL_HOST_USER
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+
+
+# django-extra-checks 
+# https://github.com/kalekseev/django-extra-checks/
+
+EXTRA_CHECKS = {
+    'checks': [
+        # Forbid 'unique_together':
+        'no-unique-together',
+
+        # Require non empty 'upload_to' argument:
+        'field-file-upload-to',
+        # Use the indexed option instead:
+        'no-index-together',
+
+        # Each model must be registered in admin:
+        'model-admin',
+        # FileField/ImageField must have non empty 'upload_to' argument:
+        'field-file-upload-to',
+
+        # Text fields shouldn't use 'null=True':
+        'field-text-null',
+        # Prefer using BooleanField(null=True) instead of NullBooleanField:
+        'field-boolean-null',
+        # Don't pass 'null=Flase' to model fileds (this is django default)
+        'field-null',
+        # ForeignKey fields must specify db_index explicitly if used in 
+        # other indexed:
+        {'id': 'field-foreign-key-db-index', 'when': 'indexes'},
+        # If field nullable '(null=True)',
+        # then default=None argument is redundant and should be removed:
+        'field-default-null',
+        # Fields with choices must have companion CheckConstraint
+        # to enforce choices on database level 
+        'field-choices-constraint',
+    ],
+}
+
+
+# Celery settings 
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = "Africa/Lagos"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+
+
+# Migration for Django Site Framework
+MIGRATION_MODULES = {
+    'sites': 'kayaccounting.fixtures.sites_migrations',
+}
+
+
+# others 
+ADMINS = [('Elisha', 'elishae621@gmail.com'),]
+
+
+# Caching
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}

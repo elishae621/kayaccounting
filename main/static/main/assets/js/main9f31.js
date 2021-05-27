@@ -120,24 +120,6 @@
         error: "invalid-feedback",
     });
 
-    $(".cf-form").on("submit", function (e) {
-
-        var dataString = $(this).serialize();
-
-        // alert(dataString); return false;
-
-        $.ajax({
-            type: "POST",
-            url: "/contact/",
-            data: dataString,
-            success: function (data) {
-                $(".form-response").text(data.message).removeClass("d-none");
-            }
-        });
-
-        e.preventDefault();
-    });
-
 
     // set active nav
     $("nav a").each((element) => {

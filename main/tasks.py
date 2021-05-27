@@ -2,14 +2,10 @@ import json
 from celery import shared_task 
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
-try:
-  from kayaccounting.settings.components import conf_location
-except ImportError:
-  conf_location = '/etc/kayaccounting.json'
 
-with open(conf_location) as config_json:
+
+with open(settings.BASE_DIR / 'kay_config.json') as config_json:
     config = json.load(config_json)
-
 
 @shared_task
 def async_notify_of_registration():

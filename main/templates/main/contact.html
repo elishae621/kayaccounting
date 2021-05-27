@@ -31,6 +31,13 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
+    <div class="col-md-10 col-lg-10 messages mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+    </div>
 
     <!-- services-area -->
     <section id="services" class="services-area pt-100 pb-70 fix">
@@ -115,11 +122,11 @@
                                     alt="circle_right"></span> Contact</h5>
                         <h2>Get In Touch With Us</h2>
                     </div>
-{% endcache %}
+                    {% endcache %}
                     <div role="form" class="cf" id="cf-f5-o1" lang="en-US" dir="ltr">
                         <div class="form-response d-none alert alert-success" role="alert"></div>
                         <form action="{% url 'contact' %}" method="post" class="cf-form" novalidate="novalidate">
-                        {% csrf_token %}
+                            {% csrf_token %}
                             <div class="contact-form ">
                                 <div class="row">
                                     <div class="col-lg-6">

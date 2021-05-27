@@ -1,8 +1,8 @@
-from django.http.response import JsonResponse
+from django.http.response import HttpResponseRedirect, JsonResponse
 from django.views.generic import TemplateView
 from main.forms import ContactForm
 from django.shortcuts import render 
-
+from django.contrib import messages
 
 def error_404(request, exception):
     data = {}
@@ -36,8 +36,9 @@ class ContactView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-        return JsonResponse(data={'ok': True, 'message': 'We would reply as soon as possible'})
+            value = form.save()
+        messages.add_message(request, messages.SUCCESS, 'We would reply as soon as possible')
+        return HttpResponseRedirect('/')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
