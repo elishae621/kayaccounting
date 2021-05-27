@@ -2,8 +2,10 @@ import json
 from celery import shared_task 
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
-from kayaccounting.settings.components import conf_location
-
+try:
+  from kayaccounting.settings.components import conf_location
+except ImportError:
+  conf_location = '/etc/kayaccounting.json'
 
 with open(conf_location) as config_json:
     config = json.load(config_json)

@@ -1,6 +1,9 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from kayaccounting.settings.components import conf_location
+try:
+  from kayaccounting.settings.components import conf_location
+except ImportError:
+  conf_location = '/etc/kayaccounting.json'
 from main.models import ContactMessage
 from django.conf import settings
 from .tasks import async_notify_of_registration, async_auto_reply_contactMessage
