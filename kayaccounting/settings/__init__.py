@@ -16,6 +16,8 @@ base_settings = [
     'components/common.py',     # standard django settings
     'components/database.py',   # postgres
     'components/emails.py',     # smtp
+    'components/celery.py',     # redis and celery
+    # 'components/logging.py',    # logging configuration
     # 'components/constance.py',  # django-constance configurations
 
     # You can even use glob: 

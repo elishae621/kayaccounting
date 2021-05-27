@@ -20,9 +20,7 @@ DEBUG = True
 ALLOWED_HOSTS = [ 
     config['DOMAIN_NAME'],
     'localhost',
-    '0.0.0.0',
-    '127.0.0.1',
-    '[::1]',
+    '139.162.137.57',
 ]
 
 # Installed apps for development only:
@@ -38,6 +36,7 @@ INSTALLED_APPS += (
 # internal_ips for debug_toolbar 
 INTERNAL_IPS = [ 
     '127.0.0.1',
+    '139.162.137.57',
 ]
 
 

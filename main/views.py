@@ -9,7 +9,6 @@ def error_404(request, exception):
     return render(request, 'main/404.html', data)
 
 
-
 class HomeView(TemplateView):
     template_name = 'main/home.html'
 

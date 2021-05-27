@@ -31,3 +31,9 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f'{self.name} on {self.date}'
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(name="main_ContactMessage_status_valid",
+            check=models.Q(status__in=["NEW", "WAITING", "FINISHED"])),
+        ]

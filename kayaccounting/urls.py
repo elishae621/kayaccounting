@@ -17,6 +17,7 @@ import debug_toolbar
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.sitemaps import views
+from django.views.decorators.cache import cache_page
 from django.urls import path, include 
 from kayaccounting.sitemaps import StaticViewSitemap
 from main.views import (
@@ -33,11 +34,11 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
-    path('about/', AboutView.as_view(), name='about'),
-    path('services/', ServicesView.as_view(), name='services'),
+    path('about/', cache_page(120)(AboutView.as_view()), name='about'),
+    path('services/', cache_page(120)(ServicesView.as_view()), name='services'),
     path('contact/', ContactView.as_view(), name='contact'),
-    path('privacy/', PrivacyView.as_view(), name='privacy'),
-    path('terms/', TermsView.as_view(), name='terms'),
+    path('privacy/', cache_page(120)(PrivacyView.as_view()), name='privacy'),
+    path('terms/', cache_page(120)(TermsView.as_view()), name='terms'),
 
     path('sitemap.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
