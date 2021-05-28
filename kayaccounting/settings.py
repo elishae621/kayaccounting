@@ -24,9 +24,9 @@ with open(BASE_DIR / 'kay_config.json') as config_json:
 SECRET_KEY = config['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kayaccountingclinic.com', 'www.kayaccountingclinic.com',]
 
 
 # Application definition
@@ -38,20 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'django.contrib.sites',
-    # Better debug:
-    'debug_toolbar',
-    
-    # django-extra-checks:
-    'extra_checks',
+
     'widget_tweaks',
 
     'main.apps.MainConfig',
 ]
 
 
-# internal_ips for debug_toolbar 
-INTERNAL_IPS = [ 
+# internal_ips for debug_toolbar
+INTERNAL_IPS = [
     '127.0.0.1',
     '139.162.137.57',
 ]
@@ -97,12 +94,11 @@ WSGI_APPLICATION = 'kayaccounting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kayaccounting',
-        'USER': 'postgres',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kayaccounting$default',
+        'USER': 'kayaccounting',
         'PASSWORD': config['DATABASE_PASSWORD'],
-        'HOST': '127.0.0.1',
-        'POST': '5432',
+        'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -171,7 +167,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 
-# django-extra-checks 
+# django-extra-checks
 # https://github.com/kalekseev/django-extra-checks/
 
 EXTRA_CHECKS = {
@@ -195,20 +191,20 @@ EXTRA_CHECKS = {
         'field-boolean-null',
         # Don't pass 'null=Flase' to model fileds (this is django default)
         'field-null',
-        # ForeignKey fields must specify db_index explicitly if used in 
+        # ForeignKey fields must specify db_index explicitly if used in
         # other indexed:
         {'id': 'field-foreign-key-db-index', 'when': 'indexes'},
         # If field nullable '(null=True)',
         # then default=None argument is redundant and should be removed:
         'field-default-null',
         # Fields with choices must have companion CheckConstraint
-        # to enforce choices on database level 
+        # to enforce choices on database level
         'field-choices-constraint',
     ],
 }
 
 
-# Celery settings 
+# Celery settings
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
@@ -226,7 +222,7 @@ MIGRATION_MODULES = {
 }
 
 
-# others 
+# others
 ADMINS = [('Elisha', 'elishae621@gmail.com'),]
 
 
@@ -237,3 +233,77 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+
+# logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'default': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/default.log',
+        },
+        'request_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/django_request.log',
+        },
+        'server_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/django_server.log',
+        },
+        'template_handler': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/django_template.log',
+        },
+        'database_handler': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/django_database.log',
+        },
+        'security_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/kayaccounting/kayaccounting/logs/django_security.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['default'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.server': {
+            'handlers': ['server_handler'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.template': {
+            'handlers': ['template_handler'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        # 'django.db.backends': {
+        #     'handlers': ['database_handler'],
+        #     'level': 'ERROR',
+        #     'propagate': True,
+        # },
+        'django.security': {
+            'handlers': ['security_handler'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+
+}
+

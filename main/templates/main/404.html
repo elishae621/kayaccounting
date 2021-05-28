@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block css_font %}
+{% block css %}
 <link rel="stylesheet" href="{% static 'main/assets/css/404.css' %}" type="text/css" />
-{% endblock css_font %}
+{% endblock css %}
 
-{% block content %}
+{% block main_content %}
 <div class="error-area">
     <div class="error-content text-center">
         <div class="error-num">
@@ -16,4 +16,4 @@
         <a href="{% url 'home' %}" class="cmn-btn mt-4">Go back to Home</a>
     </div>
 </div>
-{% endblock content %}
+{% endblock main_content %}

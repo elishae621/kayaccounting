@@ -1,4 +1,5 @@
-from django.db import models 
+from django.db import models
+from .utils import current_time
 
 
 class Instance(models.Model):
@@ -9,11 +10,11 @@ class Instance(models.Model):
     instagram = models.URLField(default='www.instagram.com')
     linkedin = models.URLField(default='www.linkedin.com')
     twitter = models.URLField(default='www.twitter.com')
-    
-    class Meta: 
+
+    class Meta:
         verbose_name = 'Kay Accounting'
         verbose_name_plural = 'Kay Accounting'
-        
+
 
 class ContactMessage(models.Model):
     class MessageStatus(models.TextChoices):
@@ -37,3 +38,14 @@ class ContactMessage(models.Model):
             models.CheckConstraint(name="main_ContactMessage_status_valid",
             check=models.Q(status__in=["NEW", "WAITING", "FINISHED"])),
         ]
+
+
+
+class Mail(models.Model):
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    content = models.TextField()
+    date_sent = models.DateTimeField(default=current_time)
+
+    def __str__(self):
+        return f"{self.email} on {self.date_sent}"

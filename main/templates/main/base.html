@@ -9,8 +9,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="An accounting and bookkeeping company. Manage your accounting. Manage your bookkeeping">
+  <meta name='robots' content='index, follow'>
+  <meta name="keywords" content="accounting, kayaccountingclinic, bookkeeping, kay" />
   <link rel="shortcut icon" href="{% static 'main/content/favicon.ico' %}">
-  <title>Key Accounting Clinic</title>
+  <title>Kay Accounting Clinic</title>
   <meta name='robots' content='max-image-preview:large' />
   <link rel='stylesheet' href="{% static 'main/assets/css/bootstrap.min9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/fontawesome/css/all.min9f31.css' %}" media='all' />
@@ -22,6 +26,7 @@
   <link rel='stylesheet' href="{% static 'main/assets/css/style9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/css/responsive9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/css/style53a2.css' %}" media='all' />
+  {% block css %}{% endblock css %}
   <script src="{% static 'main/includes/js/jquery/jquery.min9d52.js' %}"></script>
   <script src="{% static 'main/includes/js/jquery/jquery-migrate.mind617.js' %}"></script>
   <style title="dynamic-css" class="options-output">
@@ -29,6 +34,16 @@
       color: #333
     }
   </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HR7BCYCMFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HR7BCYCMFD');
+    </script>
 </head>
 
 <body
@@ -96,7 +111,7 @@
                     <ul>
                       <li><i class="icon far fa-clock"></i><br /><a
                           href="tel:{{ config.phone }}">{{ config.phone }}</a><br /></li>
-                      <li><i class="icon dripicons-mail"></i><br /><a 
+                      <li><i class="icon dripicons-mail"></i><br /><a
                           href="mailto:{{ config.email }}">{{ config.email }}</a><br /></li>
                     </ul>
                   </div>
