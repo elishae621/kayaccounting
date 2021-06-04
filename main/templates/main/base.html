@@ -16,6 +16,9 @@
   <link rel="shortcut icon" href="{% static 'main/content/favicon.ico' %}">
   <title>Kay Accounting Clinic</title>
   <meta name='robots' content='max-image-preview:large' />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sophia">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href="{% static 'main/assets/css/bootstrap.min9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/fontawesome/css/all.min9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/font-flaticon/flaticon9f31.css' %}" media='all' />
@@ -26,6 +29,7 @@
   <link rel='stylesheet' href="{% static 'main/assets/css/style9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/css/responsive9f31.css' %}" media='all' />
   <link rel='stylesheet' href="{% static 'main/assets/css/style53a2.css' %}" media='all' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   {% block css %}{% endblock css %}
   <script src="{% static 'main/includes/js/jquery/jquery.min9d52.js' %}"></script>
   <script src="{% static 'main/includes/js/jquery/jquery-migrate.mind617.js' %}"></script>
@@ -36,14 +40,17 @@
   </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HR7BCYCMFD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HR7BCYCMFD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-HR7BCYCMFD');
-    </script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HR7BCYCMFD');
+  </script>
 </head>
 
 <body
@@ -54,8 +61,8 @@
         <div class="second-menu">
           <div class="row align-items-center">
             <div class="col-xl-4 col-lg-4 text-center">
-              <div class="logo"><a href="{% url 'home' %}"><img
-                    src="{% static 'main/assets/img/logo/logo.svg' %}" alt="logo"></a></div>
+              <div class="logo"><a href="{% url 'home' %}"><img src="{% static 'main/assets/img/logo/logo.svg' %}"
+                    alt="logo"></a></div>
             </div>
             <div class="col-xl-8 col-lg-8 ">
               <div class="main-menu text-xl-center">
@@ -129,10 +136,8 @@
                     <ul>
                       <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i>About
                           Us</a></li>
-                      <li><a href="{% url 'services' %}"><i
-                            class="fas fa-chevron-right"></i>Career</a></li>
-                      <li><a href="{% url 'contact' %}"><i
-                            class="fas fa-chevron-right"></i>Contact</a></li>
+                      <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i>Career</a></li>
+                      <li><a href="{% url 'contact' %}"><i class="fas fa-chevron-right"></i>Contact</a></li>
                     </ul>
                   </div>
                 </div>
@@ -161,9 +166,9 @@
               <div class="textwidget">
                 <div class="footer-widget mb-20">
                   <div class="footer-social"><a href="{{ config.facebook }}"><i
-                        class="fab fa-facebook-f"></i></a><br /><a
-                      href="{{ config.twitter }}"><i class="fab fa-twitter"></i></a><br /><a
-                      href="{{ config.instagram }}"><i class="fab fa-instagram"></i></a></div>
+                        class="fab fa-facebook-f"></i></a><br /><a href="{{ config.twitter }}"><i
+                        class="fab fa-twitter"></i></a><br /><a href="{{ config.instagram }}"><i
+                        class="fab fa-instagram"></i></a></div>
                 </div>
               </div>
             </div>
@@ -189,17 +194,33 @@
       </div>
     </div>
   </footer>
-  <script src="{% static 'main/assets/js/vendor/modernizr-3.5.0.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/vendor/jquery-1.12.4.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/popper.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/bootstrap.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/one-page-nav-min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/jquery.counterup.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/jquery.scrollUp.min9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/jquery.meanmenu.min9f31.js' %}"></script>
+  <script src="{% static 'main/assets/js/vendor/modernizr-3.5.0.min9f31.js' %}" id='modernizr-3.5-js'>
+  </script>
+  <script src="{% static 'main/assets/js/vendor/jquery-1.12.4.min9f31.js' %}" id='jquery1-js'></script>
+  <script src="{% static 'main/assets/js/popper.min9f31.js' %}" id='popper-js'></script>
+  <script src="{% static 'main/assets/js/bootstrap.min9f31.js' %}" id='bootstrap-js'></script>
+  <script src="{% static 'main/assets/js/one-page-nav-min9f31.js' %}" id='one-page-nav-js'></script>
+  <script src="{% static 'main/assets/js/slick.min9f31.js' %}" id='slick-js'></script>
+  <script src="{% static 'main/assets/js/ajax-form9f31.js' %}" id='ajax-form-js'></script>
+  <script src="{% static 'main/assets/js/paroller9f31.js' %}" id='paroller1-js'></script>
+  <script src="{% static 'main/assets/js/wow.min9f31.js' %}" id='zebizz-wow-js'></script>
+  <script src="{% static 'main/assets/js/js_isotope.pkgd.min9f31.js' %}" id='isotope-pkgd-js'></script>
+  <script src="{% static 'main/assets/js/imagesloaded.min9f31.js' %}" id='images-loaded-js'></script>
+  <script src="{% static 'main/assets/js/parallax.min9f31.js' %}" id='parallax-js'></script>
+  <script src="{% static 'main/assets/js/jquery.waypoints.min9f31.js' %}" id='jquery-waypoints-js'>
+  </script>
+  <script src="{% static 'main/assets/js/jquery.counterup.min9f31.js' %}" id='jquery-counterup-js'>
+  </script>
+  <script src="{% static 'main/assets/js/jquery.scrollUp.min9f31.js' %}" id='jquery-scrollUp-js'></script>
+  <script src="{% static 'main/assets/js/jquery.meanmenu.min9f31.js' %}" id='jquery-meanmenu-js'></script>
+  <script src="{% static 'main/assets/js/parallax-scroll9f31.js' %}" id='parallax-scroll-js'></script>
+  <script src="{% static 'main/assets/js/jquery.magnific-popup.min9f31.js' %}" id='magnific-popup-js'>
+  </script>
+  <script src="{% static 'main/assets/js/element-in-view9f31.js' %}" id='element-in-view-js'></script>
   <script src="{% static 'main/assets/js/jquery-validation.js' %}"></script>
-  <script src="{% static 'main/assets/js/main9f31.js' %}"></script>
-  <script src="{% static 'main/assets/js/function.js' %}"></script>
-  </body>
 
-  </html>
+  <script src="{% static 'main/assets/js/main9f31.js' %}" id='zebizz-main-js'></script>
+  <script src="{% static 'main/assets/js/function.js' %}"></script>
+</body>
+
+</html>

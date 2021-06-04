@@ -1,4 +1,3 @@
--f /usr/share/pip-wheels
 amqp==5.0.6
 asgiref==3.3.4
 autopep8==1.5.7

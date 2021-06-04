@@ -94,6 +94,109 @@
         time: 1000
     });
 
+    /* magnificPopup img view */
+    $('.popup-image').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+
+    /* magnificPopup video view */
+    $('.popup-video').magnificPopup({
+        type: 'iframe'
+    });
+
+    // paroller
+    if ($('.paroller').length) {
+        $('.paroller').paroller();
+    }
+
+    //* Parallaxmouse js
+    function parallaxMouse() {
+        if ($('#parallax').length) {
+            var scene = document.getElementById('parallax');
+            var parallax = new Parallax(scene);
+        };
+    };
+    parallaxMouse();
+
+    // service active
+    $('.s-single-services').on('mouseenter', function () {
+        $(this).addClass('active').parent().siblings().find('.s-single-services').removeClass('active');
+    })
+
+    // scrollToTop
+    $.scrollUp({
+        scrollName: 'scrollUp',
+        topDistance: '300',
+        topSpeed: 300,
+        animation: 'fade',
+        animationInSpeed: 200,
+        animationOutSpeed: 200,
+        scrollText: '<i class="fas fa-level-up-alt"></i>',
+        activeOverlay: false,
+    });
+
+
+    // isotop
+    $('.grid').imagesLoaded(function () {
+        // init Isotope
+        var $grid = $('.grid').isotope({
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: 1
+            }
+        });
+
+        // filter items on button click
+        $('.button-group').on('click', 'button', function () {
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({
+                filter: filterValue
+            });
+        });
+
+    });
+    // isotop
+    $(".element").each(function () {
+            var a = $(this);
+            a.typed({
+                strings: a.attr("data-elements").split(","),
+                typeSpeed: 100,
+                backDelay: 3e3
+            })
+        }),
+        //for menu active class
+        $('.button-group > button').on('click', function (event) {
+            $(this).siblings('.active').removeClass('active');
+            $(this).addClass('active');
+            event.preventDefault();
+        });
+
+    // WOW active
+    new WOW().init();
+
+    //Tabs Box
+    if ($('.tabs-box').length) {
+        $('.tabs-box .tab-buttons .tab-btn').on('click', function (e) {
+            e.preventDefault();
+            var target = $($(this).attr('data-tab'));
+
+            if ($(target).is(':visible')) {
+                return false;
+            } else {
+                target.parents('.tabs-box').find('.tab-buttons').find('.tab-btn').removeClass('active-btn');
+                $(this).addClass('active-btn');
+                target.parents('.tabs-box').find('.tabs-content').find('.tab').fadeOut(0);
+                target.parents('.tabs-box').find('.tabs-content').find('.tab').removeClass('active-tab animated fadeIn');
+                $(target).fadeIn(300);
+                $(target).addClass('active-tab animated fadeIn');
+            }
+        });
+    }
 
     // scrollToTop
     $.scrollUp({

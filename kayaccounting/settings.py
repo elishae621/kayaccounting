@@ -24,9 +24,9 @@ with open(BASE_DIR / 'kay_config.json') as config_json:
 SECRET_KEY = config['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['kayaccountingclinic.com', 'www.kayaccountingclinic.com',]
+ALLOWED_HOSTS = ['kayaccountingclinic.com', 'www.kayaccountingclinic.com', 'localhost',]
 
 
 # Application definition
@@ -47,18 +47,13 @@ INSTALLED_APPS = [
 ]
 
 
-# internal_ips for debug_toolbar
-INTERNAL_IPS = [
-    '127.0.0.1',
-    '139.162.137.57',
-]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -92,8 +87,22 @@ WSGI_APPLICATION = 'kayaccounting.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'kayaccounting$default',
+#         'USER': 'kayaccounting',
+#         'PASSWORD': config['DATABASE_PASSWORD'],
+#         'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
+#     }
+# }
+
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbsqlite3'
+    },
+    'mysql': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kayaccounting$default',
         'USER': 'kayaccounting',
@@ -101,7 +110,6 @@ DATABASES = {
         'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
     }
 }
-
 
 
 # Password validation
@@ -237,73 +245,73 @@ CACHES = {
 
 # logging
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'default': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/default.log',
-        },
-        'request_handler': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/django_request.log',
-        },
-        'server_handler': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/django_server.log',
-        },
-        'template_handler': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/django_template.log',
-        },
-        'database_handler': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/django_database.log',
-        },
-        'security_handler': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/home/kayaccounting/kayaccounting/logs/django_security.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['default'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['request_handler'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.server': {
-            'handlers': ['server_handler'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.template': {
-            'handlers': ['template_handler'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-        # 'django.db.backends': {
-        #     'handlers': ['database_handler'],
-        #     'level': 'ERROR',
-        #     'propagate': True,
-        # },
-        'django.security': {
-            'handlers': ['security_handler'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'default': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/default.log',
+#         },
+#         'request_handler': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/django_request.log',
+#         },
+#         'server_handler': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/django_server.log',
+#         },
+#         'template_handler': {
+#             'level': 'ERROR',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/django_template.log',
+#         },
+#         'database_handler': {
+#             'level': 'ERROR',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/django_database.log',
+#         },
+#         'security_handler': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/home/kayaccounting/kayaccounting/logs/django_security.log',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['default'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#         'django.request': {
+#             'handlers': ['request_handler'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#         'django.server': {
+#             'handlers': ['server_handler'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#         'django.template': {
+#             'handlers': ['template_handler'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#         # 'django.db.backends': {
+#         #     'handlers': ['database_handler'],
+#         #     'level': 'ERROR',
+#         #     'propagate': True,
+#         # },
+#         'django.security': {
+#             'handlers': ['security_handler'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
 
-}
+# }
 
