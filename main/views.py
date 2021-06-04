@@ -1,8 +1,14 @@
-from django.http.response import HttpResponseRedirect, JsonResponse
+from django.http.response import HttpResponseRedirect
 from django.views.generic import TemplateView
 from main.forms import ContactForm
-from django.shortcuts import render 
+from django.shortcuts import render
 from django.contrib import messages
+
+
+
+class ComingSoonView(TemplateView):
+    template_name = 'main/coming_soon.html'
+
 
 def error_404(request, exception):
     data = {}
@@ -16,7 +22,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["cf_form"] = ContactForm()
         return context
-    
+
 
 class AboutView(TemplateView):
     template_name = 'main/about.html'
@@ -45,7 +51,7 @@ class ContactView(TemplateView):
         context["cf_form"] = ContactForm()
         return context
 
-    
+
 class PrivacyView(TemplateView):
     template_name = 'main/privacy.html'
 

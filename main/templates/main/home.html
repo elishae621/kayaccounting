@@ -13,17 +13,15 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="slider-content s-slider-content text2">
-                <h5>Kay Accounting Clinic</h5>
-                <h2>Your Accounting solution
-                </h2>
-                <p>Interdum et malesuada fames ac ante
-                  ipsum primis in faucibus. Sed vehicula, ipsum at molestie tincidunt elementum
-                  volutpat.</p>
+              <div class="slider-content s-slider-content text2 text-center">
+                <h3>Focus On Growing Your Business</br>Trust The Accounting To Us
+                </h3>
+                <p>Virtual accounting clinic that provides small businesses with specialized accounting support.</p>
                 <div class="slider-btn mt-40"><a href="{% url 'services' %}" class=" btn ss-btn active mr-15">Our
                     Services <i class="fal fa-arrow-right"></i></a></div>
               </div>
             </div>
+            {% if messages %}
             <div class="col-lg-4">
               <div class="col-md-10 col-lg-10 messages mt-3">
                 {% for message in messages %}
@@ -32,7 +30,8 @@
                 </div>
                 {% endfor %}
               </div>
-</div>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -59,17 +58,16 @@
             <div class="about-content3">
               <div class="row">
                 <div class="col-md-6">
-                  <p>As one of the world's largest ITService Providers with over 120 engineers and
-                    IT support staff are ready to help.</p>
+                  <p>As one of the leading virtual accounting clinics that provides businesses with specialized support, we are ready to help.</p>
                   <div class="slider-btn mt-10"><a href="{% url 'contact' %}" class="btn ss-btn active">Contact Us <i
                         class="fal fa-arrow-right"></i></a>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <ul class="green">
-                    <li>Finance & estructuring</li>
-                    <li>Estate Planning Service</li>
-                    <li>Audit & Evaluation Service</li>
+                    <li>Bookkeeping</li>
+                    <li>Payroll Support Services</li>
+                    <li>Business Support</li>
                   </ul>
                 </div>
               </div>
@@ -93,8 +91,9 @@
                   <img src="{% static 'main/content/se-icon4-af.png' %}" alt="img">
                 </div>
                 <div class="services-content2">
-                  <h5>Service 1</h5>
-                  <p>some short description on service 1</p>
+                  <h5>Bookkeeping</h5>
+                  <p>We offer professional bookkeeping services to capture your day-to-day business
+                  transactions and produce financial reports with them! (From 40K/Month)</p>
                 </div>
               </div>
             </li>
@@ -107,8 +106,9 @@
                   <img src="{% static 'main/content/se-icon5-af.png' %}" alt="img">
                 </div>
                 <div class="services-content2">
-                  <h5>Service 2</h5>
-                  <p>some short description on service 2</p>
+                  <h5>Payroll Support Services</h5>
+                  <p>We compute your employee remuneration, get them paid when you want,
+                  prepare & send their pay slips and make all the regulatory filling done! (From 15k/Monthly)</p>
                 </div>
               </div>
             </li>
@@ -121,8 +121,10 @@
                   <img src="{% static 'main/content/se-icon6-af.png' %}" alt="img">
                 </div>
                 <div class="services-content2">
-                  <h5>Service 3</h5>
-                  <p>some short description on service 3</p>
+                  <h5>Business Support</h5>
+                  <p>We understand that small businesses need bespoke services other than fixing monthly numbers,
+                  we can help with your incorporation documents, Business Plans, Budget forecast, etc. (Prices are affordable
+                  & varies on the service, fill form to get a quote in 1 hour)</p>
                 </div>
               </div>
             </li>
@@ -135,8 +137,12 @@
                   <img src="{% static 'main/content/se-icon7-af.png' %}" alt="img">
                 </div>
                 <div class="services-content2">
-                  <h5>Service 4</h5>
-                  <p>some short description on service 4</p>
+                  <h5>Training</h5>
+                  <p>Although we offer an affordable monthly booking service,
+                  we understand that you might need your in-house bookkeeper to do the job,
+                  we are happy to offer various trainings including Accounting for Non-Accountants
+                  and Basic Microsoft Excel skills
+</p>
                 </div>
               </div>
             </li>
@@ -147,7 +153,7 @@
             <div class="about-title second-atitle pb-20">
               <h5><span class="line"><img src="{% static 'main/assets/img/bg/circle_right.png' %}"
                     alt="circle_right"></span>Services</h5>
-              <h2>We Provide Services Grow Your Business</h2>
+              <h2>What makes us different</h2>
             </div>
             <p>Etiam tincidunt massa non vestibulum. Nam ut metus id lacus pulvinar dignissim eu quis
               magna. Ut vel velit odio. Maecenas purus dolor, finibus sed gravida in, tincidunt nec
@@ -173,8 +179,7 @@
           <div class="contact-bg02">
             <div class="section-title mb-30">
               <h3>Get In Touch With Us</h3>
-              <p>Our deep pool of certified engineers and IT staff are ready to help you to keep your
-                IT business safe & ensure high availability.</p>
+              <p></p>
             </div>
 {% endcache %}
             <div role="form" class="cf" id="cf-f5-o1" lang="en-US" dir="ltr">
