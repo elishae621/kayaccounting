@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from main.forms import ContactForm
 from django.shortcuts import render
 from django.contrib import messages
+from main.models import Subscriber
 
 
 
@@ -11,17 +12,17 @@ class ComingSoonView(TemplateView):
 
 
 def error_404(request, exception):
-    data = {}
-    return render(request, 'main/404.html', data)
+    messages.add_message(request, messages.DEBUG, "The page you are looking for does not exist")
+    return HttpResponseRedirect('/')
 
 
 class HomeView(TemplateView):
     template_name = 'main/home.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["cf_form"] = ContactForm()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["cf_form"] = ContactForm()
+    #     return context
 
 
 class AboutView(TemplateView):
@@ -39,17 +40,27 @@ class FaqView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'main/contact.html'
 
-    def post(self, request, *args, **kwargs):
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            value = form.save()
-        messages.add_message(request, messages.SUCCESS, 'We would reply as soon as possible')
+    # def post(self, request, *args, **kwargs):
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         value = form.save()
+    #     messages.add_message(request, messages.SUCCESS, 'We would reply as soon as possible')
+    #     return HttpResponseRedirect('/')
+
+    def get(self, request, *args, **kwargs):
+        try:
+            Subscriber.objects.create(email=request.GET.get('email'))
+            messages.add_message(request, messages.SUCCESS,
+                             'We would reply as soon as possible')
+        except:
+            pass
         return HttpResponseRedirect('/')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["cf_form"] = ContactForm()
-        return context
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["cf_form"] = ContactForm()
+    #     return context
 
 
 class PrivacyView(TemplateView):

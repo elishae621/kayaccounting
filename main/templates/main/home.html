@@ -1,230 +1,561 @@
-{% extends 'main/base.html' %}
 {% load static %}
-{% load widget_tweaks %}
-{% load cache %}
+<!DOCTYPE html>
+<html lang="zxx">
 
-{% block main_content %}
-<main>
-{% cache 120 hometop %}
-  <section id="home" class="slider-area2 fix p-relative">
-    <div class="slider-active">
-      <div class="single-slider slider-bg d-flex align-items-center"
-        style="">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="slider-content s-slider-content text2 w3-container text-center">
-                <h2 class="w3-sophia"><span class="animate__animated animate__lightSpeedInLeft">Focus On
-                    Growing Your
-                    Business</span></br></br><span class="animate__animated animate__lightSpeedInRight">Trust The
-                      Accounting To Us</span>
-                </h2>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="thecodude">
+	<meta name="description" content="Kay Accounting Clinic is a virtual accounting and bookkeeping firm">
 
-              </div>
-            </div>
-            {% if messages %}
-            <div class="col-lg-4">
-              <div class="col-md-10 col-lg-10 messages mt-3">
-                {% for message in messages %}
-                <div class="alert alert-{{message.tags}}" role="alert">
-                  {{message}}
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="about" class="about-area about-p pt-100 pb-100 p-relative">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 col-md-12 col-sm-12 pr-30">
-          <div class="s-about-img p-relative"><img
-              src="{% static 'main/assets/img/new/bookkeeping-vs-accounting.jpg' %}" alt="img">
-            <div class="about-text second-about"><span>5 <sub>+</sub></span>
-              <p>Years Experience</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div class="about-content s-about-content">
-            <div class="section-title second-atitle pb-35">
-              <h5><span class="line2"><img src="{% static 'main/assets/img/bg/circle_left.png' %}"
-                    alt="circle_right"></span>About Us</h5>
-              <h2>Get Your Best Business Solution</h2>
-            </div>
-            <div class="about-content3">
-              <div class="row">
-                <div class="col-md-6">
-                  <p>As one of the leading virtual accounting clinics that provides businesses with specialized support, we are ready to help.</p>
-                  <div class="slider-btn mt-10"><a href="{% url 'contact' %}" class="btn ss-btn active">Contact Us <i
-                        class="fal fa-arrow-right"></i></a>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <ul class="green">
-                    <li>Bookkeeping</li>
-                    <li>Payroll Support Services</li>
-                    <li>Business Support</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="services" class="services-area pb-50 fix">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 col-md-12">
-          <ul class="services-bd-box">
-            <li>
-              <div class="services-bd-01">
-                <div class="services-icon">
-                  <img src="{% static 'main/content/se-icon4.png' %}" alt="img">
-                </div>
-                <div class="services-icon2">
-                  <img src="{% static 'main/content/se-icon4-af.png' %}" alt="img">
-                </div>
-                <div class="services-content2">
-                  <h5>Bookkeeping</h5>
-                  <p>We offer professional bookkeeping services to capture your day-to-day business
-                  transactions and produce financial reports with them!</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="services-bd-01">
-                <div class="services-icon">
-                  <img src="{% static 'main/content/se-icon5.png' %}" alt="img">
-                </div>
-                <div class="services-icon2">
-                  <img src="{% static 'main/content/se-icon5-af.png' %}" alt="img">
-                </div>
-                <div class="services-content2">
-                  <h5>Payroll Support Services</h5>
-                  <p>We compute your employee remuneration, get them paid when you want,
-                  prepare & send their pay slips and make all the regulatory filling done!</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="services-bd-01">
-                <div class="services-icon">
-                  <img src="{% static 'main/content/se-icon6.png' %}" alt="img">
-                </div>
-                <div class="services-icon2">
-                  <img src="{% static 'main/content/se-icon6-af.png' %}" alt="img">
-                </div>
-                <div class="services-content2">
-                  <h5>Business Support</h5>
-                  <p>We understand that small businesses need bespoke services other than fixing monthly numbers,
-                  we can help with your incorporation documents, Business Plans, Budget forecast, etc. (Prices are affordable
-                  & varies on the service, fill form to get a quote in 1 hour)</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="services-bd-01">
-                <div class="services-icon">
-                  <img src="{% static 'main/content/se-icon7.png' %}" alt="img">
-                </div>
-                <div class="services-icon2">
-                  <img src="{% static 'main/content/se-icon7-af.png' %}" alt="img">
-                </div>
-                <div class="services-content2">
-                  <h5>Training</h5>
-                  <p>Although we offer an affordable monthly booking service,
-                  we understand that you might need your in-house bookkeeper to do the job,
-                  we are happy to offer various trainings including Accounting for Non-Accountants
-                  and Basic Microsoft Excel skills
-</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="about-content s-about-content pl-30">
-            <div class="about-title second-atitle pb-20">
-              <h5><span class="line"><img src="{% static 'main/assets/img/bg/circle_right.png' %}"
-                    alt="circle_right"></span>Services</h5>
-              <h2>What makes us different</h2>
-            </div>
-            <p>Etiam tincidunt massa non vestibulum. Nam ut metus id lacus pulvinar dignissim eu quis
-              magna. Ut vel velit odio. Maecenas purus dolor, finibus sed gravida in, tincidunt nec
-              leo. Nunc tincidunt massa volutpat enim feugiat faucibus. Nullam erat lorem, vehicula
-              quis sem sed, dictum semper mauris. Proin sed dolor id justo sollicitudin tempus.</p>
-            <p>Nunc ultricies non odio vitae fringilla. Ut quis quam ac purus egestas maximus eget eu
-              sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
-              condimentum ex eu pulvinar sollicitudin. Integer turpis est, varius et mattis eu,
-              porttitor vel nisi.</p>
-            <p>Aenean efficitur aliquam neque, non malesuada ex placerat ac. Duis vel tortor a felis
-              venenatis egestas vehicula et eros.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="contact-area contact-bg p-relative fix"
-    style="background-image:url('{{ STATIC_PREFIX }}main/assets/img/bg/contact-bg.html')">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <div class="contact-bg02">
-            <div class="section-title mb-30">
-              <h3>Get In Touch With Us</h3>
-              <p></p>
-            </div>
-{% endcache %}
-            <div role="form" class="cf" id="cf-f5-o1" lang="en-US" dir="ltr">
-              <div class="form-response d-none alert alert-success" role="alert"></div>
-              <form action="{% url 'contact' %}" method="post" class="cf-form" novalidate="novalidate">
-              {% csrf_token %}
-                <div class="contact-form ">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <input class="d-none" type='text' value='{{request.path}}' name='url' hidden disabled >
-                      <div class="contact-field p-relative c-name mb-20"><span class="cf-form-control-wrap your-name">
-                          {% render_field cf_form.name size="40" class="cf-form-control cf-text" aria-invalid="false" required="required" %}
-                        </span></div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="contact-field p-relative c-email mb-20"><span class="cf-form-control-wrap your-email">
-                          {% render_field cf_form.email size="40"class="cf-form-control cf-text cf-email cf-validates-as-required cf-validates-as-email" aria-required="true" required="required" aria-invalid="false" %}
-                        </span></div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="contact-field p-relative c-subject mb-20"><span
-                          class="cf-form-control-wrap your-phone">
-                          {% render_field cf_form.phone size="40" class="cf-form-control cf-text" aria-invalid="false" required="required" %}
-                        </span></div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="contact-field p-relative c-message mb-45"><span
-                          class="cf-form-control-wrap your-message">
-                          {% render_field cf_form.content cols="40" rows="10" class="cf-form-control cf-textarea" aria-invalid="false" required="required"%}
-                        </span>
-                      </div>
-                      <div class="slider-btn"><input type="submit" value="Send Message"
-                          class="cf-form-control cf-submit btn ss-btn active" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="cf-response-output cf-display-none"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-{% endblock main_content %}
+	<!-- Responsive Tag -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--favicon icon-->
+	<link rel="icon" type="image/png" href="{% static 'main/images/logos/fav.png' %}">
+
+	<title>Kay Accounting Clinic</title>
+
+	<!-- Inject:css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/magnific-popup.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}"> <!-- Template Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/responsive.css' %}"> <!-- Responsive Stylesheet -->
+
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<!-- Banner Start -->
+	<div id="home" class="tcd-banner">
+		<!-- Header Start -->
+		<header id="tcd-header" class="tcd-header-1">
+			<div class="menu-bar menu-sticky">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3">
+							<div class="logo">
+								<a href="#home">
+									<h4 class="text-white logo-text">Kay<br>Accounting<br>Clinic</h4>
+								</a>
+							</div>
+							<button class="mobile-menu-icon" aria-label="Main Menu">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+						<div class="col-lg-9">
+							<div class="mainmenu">
+								<ul class="nav-menu">
+									<li><a href="#home">Home</a></li>
+
+									<li><a href="#about">About</a></li>
+
+									<li><a href="#services">Services</a></li>
+
+									<li><a href="#features">Features</a></li>
+
+									<!-- <li><a href="#tcd-blog">Blog</a></li> -->
+
+									<li><a href="#footer">Contact</a></li>
+								</ul>
+								<div class="contact-menu">
+									<span class="icon"><img src="{% static 'main/images/arrows/phone.svg' %}"
+											alt="Phone Icon"> </span>
+									<div class="contact-number">
+										<span><a class="phone" href="tel:{{config.phone}}">{{config.phone}}</a></span>
+										<span>Opening Hours 09-05</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="menu-bg hidden-md"></div>
+			</div>
+		</header>
+		<!-- Header End -->
+
+		<div class="banner-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-lg-10 messages mt-3">
+						{% for message in messages %}
+						<div class="alert alert-{{message.tags}}" role="alert">
+							{{message}}
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="banner-slider owl-carousel">
+					<div class="banner-content text-center">
+						<h2 class="banner-title uppercase">
+							We are Financial Experts Boost Your Business! Right Now
+						</h2>
+						<h5 class="banner-desc">Over 5 years experience and knowledge international...</h5>
+						<div class="banner-btn">
+							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
+								class="primary-btn transparent">Contact Us</a>
+						</div>
+					</div>
+					<div class="banner-content text-center">
+						<h2 class="banner-title uppercase">
+							A Leading Virtual Accounting Firm. Upgrade Now!
+						</h2>
+						<h5 class="banner-desc">Over 5 years experience and knowledge international...</h5>
+						<div class="banner-btn">
+							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
+								class="primary-btn transparent">Contact Us</a>
+						</div>
+					</div>
+					<div class="banner-content text-center">
+						<h2 class="banner-title uppercase">
+							Trust the Accounting To Us. We are professionals.
+						</h2>
+						<h5 class="banner-desc">Over 5 years experience and knowledge international...</h5>
+						<div class="banner-btn">
+							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
+								class="primary-btn transparent">Contact Us</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Banner End -->
+
+
+	<!-- About Us Start -->
+	<div id="about" class="tcd-about sec-spacer">
+		<div class="row align-items-center margin-0">
+			<div class="col-lg-6 padding-0 d-none d-xl-block d-lg-block d-xl-none">
+				<div class="about-img">
+					<img src="{% static 'main/images/new/top.jpg' %}" alt="About Image">
+				</div>
+			</div>
+			<div class="col-lg-6 padding-0">
+				<div class="about-content">
+					<h2 class="mb-25">Learn About Us</h2>
+					<p class="mb-20">A virtual accounting clinic that provides small businesses with specialized
+						accounting support. We will be a partner an dan asset to your small business.</p>
+					<p class="mb-0">Trust us with the accounting and focus on other things that matter to you.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Us End -->
+
+	<!-- Services Start -->
+	<div id="services" class="tcd-services">
+		<div class="container">
+			<div class="sec-title top-border text-center pb-120">
+				<h2 class="title">Services We Provide</h2>
+				<p class="desc">We know out area of expertise! By narrowing our client base down to your specific
+					industries, <br>we are able to truly understand the needs of your business...</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 md-mt-80">
+					<div class="single-service">
+						<div class="service-icon">
+							<img src="{% static 'main/images/services/1.svg' %}" alt="Service Icon">
+						</div>
+						<div class="service-text">
+							<h4 class="title"><a>Bookkeeping</a></h4>
+							<p class="desc">We would capture your daily business transactions and produce financial
+								reports with them.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 md-mt-80">
+					<div class="single-service">
+						<div class="service-icon">
+							<img src="{% static 'main/images/services/2.svg' %}" alt="Service Icon">
+						</div>
+						<div class="service-text">
+							<h4 class="title"><a>Payroll Support</a></h4>
+							<p class="desc">We compute your employee remuneration, pay them &amp; send their pay slips
+								and make all documentation.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-service">
+						<div class="service-icon">
+							<img src="{% static 'main/images/services/3.svg' %}" alt="Service Icon">
+						</div>
+						<div class="service-text">
+							<h4 class="title"><a>Business Support</a></h4>
+							<p class="desc">We can help your small business with incorporation documents, Business
+								Plans, Budget forecast, etc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Services End -->
+
+	<!-- Video Section Start -->
+	<div id="tcd-video-area" class="tcd-video-area">
+		<div class="video-img">
+			<img src="{% static 'main/images/new/video-img.jpg' %}" alt="Video Bg Image">
+		</div>
+		<div class="video-icon">
+			<a id="play-home-video" class="video-play-button" href="#footer">
+				<!-- <img src="{% static 'main/images/video-icon.svg' %}" alt="Video Icon"> -->
+			</a>
+			<p class="video-txt">Take advantage of us</p>
+		</div>
+	</div>
+	<!-- Video Section Start -->
+
+	<!-- Feature Start -->
+	<div id="features" class="tcd-features sec-spacer">
+		<div class="container">
+			<div class="sec-title top-border text-center pb-75 md-pb-50">
+				<h2 class="title">Our Best Feature</h2>
+				<p class="desc">Among the hundreds of accounting and bookkeeping services all over Nigeria, here are
+					some of the services that makes us different.</p>
+			</div>
+			<div class="feature-slider owl-carousel">
+				<div class="feature-item">
+					<div class="feature-img">
+						<img src="{% static 'main/images/new/1.png' %}" alt="Image Alt">
+					</div>
+					<div class="feature-text">
+						<span class="water-text">01</span>
+						<h4 class="title"><a>Limit Number of clients</a></h4>
+						<span class="desc">By controlling the number of clients we take at a time, we are able to
+							provide excellent services at all times.</span>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-img">
+						<img src="{% static 'main/images/new/2.jpg' %}" alt="Image Alt">
+					</div>
+					<div class="feature-text">
+						<span class="water-text">02</span>
+						<h4 class="title"><a>No to mass producing</a></h4>
+						<span class="desc">No, we don't outsource tasks overseas and we are not in the business of mass
+							producing accounting services.</span>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-img">
+						<img src="{% static 'main/images/new/3.jpg' %}" alt="Image Alt">
+					</div>
+					<div class="feature-text">
+						<span class="water-text">03</span>
+						<h4 class="title"><a>Accounting Accuracy</a></h4>
+						<span class="desc">We know that in accounting accuracy matters! We take pride in our work and
+							won't settle for less than excellence.</span>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-img">
+						<img src="{% static 'main/images/new/4.jpg' %}" alt="Image Alt">
+					</div>
+					<div class="feature-text">
+						<span class="water-text">04</span>
+						<h4 class="title"><a>Efficient Customer Service</a></h4>
+						<span class="desc">We will always communicate with you, your collegues, customers and vendors
+							with professionalism and kindness.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Feature End -->
+
+	<!-- Team Start -->
+	<!-- <div id="tcd-team" class="tcd-team">
+		<div class="container">
+			<div class="sec-title top-border text-center pb-75 md-pb-50">
+				<h2 class="title">Developing Team</h2>
+				<p class="desc">There are many variation passages of Lorem Ipsum There are many variation passages of
+					Lorem
+					Ipsum <br>passages of LoremIpsum available passages of LoremIpsum available...</p>
+			</div>
+			<div class="team-slider owl-carousel">
+				<div class="single-team">
+					<div class="team-img">
+						<img src="{% static 'main/images/team/1.png' %}" alt="Team Image">
+					</div>
+					<div class="team-text">
+						<a href="#" class="title">Herman Sheffield</a>
+						<span class="designation">Designer</span>
+						<div class="hidden-content">
+							<span class="desc">Aenean animi error sint iusto hynae</span>
+							<ul class="social-icon">
+								<li><a href="#"><i class="fa fa-google"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="single-team">
+					<div class="team-img">
+						<img src="{% static 'main/images/team/2.png' %}" alt="Team Image">
+					</div>
+					<div class="team-text">
+						<a href="#" class="title">Paul Walker</a>
+						<span class="designation">Designer</span>
+						<div class="hidden-content">
+							<span class="desc">Aenean animi error sint iusto hynae</span>
+							<ul class="social-icon">
+								<li><a href="#"><i class="fa fa-google"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="single-team">
+					<div class="team-img">
+						<img src="{% static 'main/images/team/3.png' %}" alt="Team Image">
+					</div>
+					<div class="team-text">
+						<a href="#" class="title">Kory Anderson</a>
+						<span class="designation">Designer</span>
+						<div class="hidden-content">
+							<span class="desc">Aenean animi error sint iusto hynae</span>
+							<ul class="social-icon">
+								<li><a href="#"><i class="fa fa-google"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="single-team">
+					<div class="team-img">
+						<img src="{% static 'main/images/team/4.png' %}" alt="Team Image">
+					</div>
+					<div class="team-text">
+						<a href="#" class="title">Katherine Davis</a>
+						<span class="designation">Designer</span>
+						<div class="hidden-content">
+							<span class="desc">Aenean animi error sint iusto hynae</span>
+							<ul class="social-icon">
+								<li><a href="#"><i class="fa fa-google"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- Team End -->
+
+	<!-- Blog Start -->
+	<!-- <div id="tcd-blog" class="tcd-blog sec-spacer">
+		<div class="container-fluid">
+			<div class="sec-title top-border text-center pb-75 md-pb-50">
+				<h2 class="title">Our Blog Post</h2>
+				<p class="desc">There are many variation passages of Lorem Ipsum There are many variation passages of
+					Lorem
+					Ipsum <br>passages of LoremIpsum available passages of LoremIpsum available...</p>
+			</div>
+			<div class="blog-slider owl-carousel">
+				<div class="blog-item">
+					<div class="blog-img">
+						<a href="blog-details.html"><img src="{% static 'main/images/blog/1.jpg' %}" alt="Blog Image"></a>
+					</div>
+					<div class="blog-content">
+						<div class="left-part">
+							<div class="single-part">
+								<span class="date">25</span>
+								<span class="date">May</span>
+							</div>
+							<div class="single-part">
+								<span>Likes: 10</span>
+							</div>
+							<div class="single-part">
+								<span>08</span>
+								<span>Comments</span>
+							</div>
+						</div>
+						<div class="right-part">
+							<h4 class="title"><a href="blog-details.html">New Chicago school budget relies on the state
+									pension</a></h4>
+							<p class="desc">There are many variation passages of Lorem Ipsum There are many variation
+								passages oform pasages of Ipsum available...</p>
+							<a class="blog-btn" href="blog-details.html">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="blog-item">
+					<div class="blog-img">
+						<a href="blog-details.html"><img src="{% static 'main/images/blog/2.jpg' %}" alt="Blog Image"></a>
+					</div>
+					<div class="blog-content">
+						<div class="left-part">
+							<div class="single-part">
+								<span class="date">25</span>
+								<span class="date">May</span>
+							</div>
+							<div class="single-part">
+								<span>Likes: 10</span>
+							</div>
+							<div class="single-part">
+								<span>08</span>
+								<span>Comments</span>
+							</div>
+						</div>
+						<div class="right-part">
+							<h4 class="title"><a href="blog-details.html">New Chicago school budget relies on the state
+									pension</a></h4>
+							<p class="desc">There are many variation passages of Lorem Ipsum There are many variation
+								passages oform pasages of Ipsum available...</p>
+							<a class="blog-btn" href="blog-details.html">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="blog-item">
+					<div class="blog-img">
+						<a href="blog-details.html"><img src="{% static 'main/images/blog/3.jpg' %}" alt="Blog Image"></a>
+					</div>
+					<div class="blog-content">
+						<div class="left-part">
+							<div class="single-part">
+								<span class="date">25</span>
+								<span class="date">May</span>
+							</div>
+							<div class="single-part">
+								<span>Likes: 10</span>
+							</div>
+							<div class="single-part">
+								<span>08</span>
+								<span>Comments</span>
+							</div>
+						</div>
+						<div class="right-part">
+							<h4 class="title"><a href="blog-details.html">New Chicago school budget relies on the state
+									pension</a></h4>
+							<p class="desc">There are many variation passages of Lorem Ipsum There are many variation
+								passages oform pasages of Ipsum available...</p>
+							<a class="blog-btn" href="blog-details.html">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- Blog End -->
+
+	<!-- Testimonial Start -->
+	<div id="tcd-testimonial" class="tcd-testimonial">
+		<div class="container">
+			<div class="testimonial-area testi-watermark-text">
+				<div class="testi-slider owl-carousel">
+					<div class="testi-item">
+						<div class="testi-img">
+							<img class="img" src="{% static 'main/images/new/avatar.jpg' %}" alt="Testimonial Image">
+						</div>
+						<div class="testi-info">
+							<h6 class="title">John Okafor</h6>
+							<span class="designation">kalex Electronics</span>
+						</div>
+						<div class="testi-desc">
+							<p>Professional and timely services, Kay accounting Clinic has been managing my accounting
+								for four years now and I have had no reason to worry about bookkeeping in this time.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial End -->
+
+	<!-- Footer Start -->
+	<div id="footer" class="tcd-footer">
+		<div class="container">
+			<div class="row footer-content">
+				<div class="col-md-4">
+					<div class="footer-widget">
+						<div class="footer-logo">
+							<a href="index-2.html">
+								<h4 class="text-dark logo-text">Kay<br>Accounting<br>Clinic</h4>
+							</a>
+						</div>
+						<p class="copyright-text">© 2020 <a href="#home">Budget.com</a>. All Rights Reserved.</p>
+						<div class="footer-social">
+							<ul class="social-icon">
+								<li><a href="{{config.instagram}}"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="{{config.facebook}}"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="{{config.twitter}}"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="footer-widget">
+						<h4 class="footer-title">Latest Information</h4>
+						<p>Information Update</p>
+						<ul class="footer-menu">
+							<li><a href="#home">Home</a></li>
+							<li><a href="#about">About Us</a></li>
+							<li><a href="#services">Services</a></li>
+							<li><a href="#features">Features</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="footer-widget">
+						<h4 class="footer-title">Contact Us</h4>
+						<p>Social Address</p>
+						<div class="tcd-newsletter">
+							<form class="mb-0" action="{% url 'contact' %}">
+
+								<div class="form-group">
+									<input type="email" name="email" placeholder="Your Email">
+									<button class="btn-newsletter"><i class="fa fa-paper-plane-o"
+											aria-hidden="true"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+
+						<div class="footer-address">
+							<a class="phone" href="tel:{{config.phone}}">{{config.phone}}</a><a
+								href="mailto:{{config.email}}">{{config.email}}</a>
+							<span>{{config.address}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer End -->
+
+	<!-- scrollUp start here-->
+	<div id="toTop">
+		<i class="fa fa-rocket"></i>
+	</div>
+
+	<!-- modernizr v.3.5.0 js -->
+	<script src="{% static 'main/js/modernizr-3.5.0.min.js' %}"></script>
+	<!-- jquery latest version -->
+	<script src="{% static 'main/js/jquery.min.js' %}"></script>
+	<!-- bootstrap 4.0.0 js -->
+	<script src="{% static 'main/js/bootstrap-popup.min.js' %}"></script>
+	<script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+	<!-- magnific js -->
+	<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'main/js/main.js' %}"></script>
+</body>
+
+</html>

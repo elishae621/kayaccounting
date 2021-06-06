@@ -88,17 +88,17 @@ WSGI_APPLICATION = 'kayaccounting.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'dbsqlite3'
-    # },
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kayaccounting$default',
-        'USER': 'kayaccounting',
-        'PASSWORD': config['DATABASE_PASSWORD'],
-        'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbsqlite3'
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'kayaccounting$default',
+    #     'USER': 'kayaccounting',
+    #     'PASSWORD': config['DATABASE_PASSWORD'],
+    #     'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
+    # }
 }
 
 

@@ -1,21 +1,34 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group, User
-from .models import ContactMessage, Instance, Mail
+from .models import ContactMessage, Instance, Mail, Subscriber
 
 
-@admin.register(ContactMessage)
-class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'status',)
-    list_filter = ('status',)
-    readonly_fields = ('date',)
+# @admin.register(ContactMessage)
+# class ContactMessageAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'phone', 'status',)
+#     list_filter = ('status',)
+#     readonly_fields = ('date',)
+#     fieldsets = (
+#         ('Details', {
+#             'classes': ('wide',),
+#             'fields': ('name', 'phone', 'email', 'status', 'date', 'content',),
+#         }),
+#     )
+#     search_fields = ('name', 'content',)
+#     ordering = ('-date',)
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email',)
     fieldsets = (
-        ('Details', {
-            'classes': ('wide',),
-            'fields': ('name', 'phone', 'email', 'status', 'date', 'content',),
+        (None, {
+            "fields": (
+                'email',
+            ),
         }),
     )
-    search_fields = ('name', 'content',)
-    ordering = ('-date',)
+        
+
 
 @admin.register(Instance)
 class InstanceAdmin(admin.ModelAdmin):

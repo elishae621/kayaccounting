@@ -49,3 +49,7 @@ class Mail(models.Model):
 
     def __str__(self):
         return f"{self.email} on {self.date_sent}"
+
+
+class Subscriber(models.Model):
+    email = models.EmailField()
