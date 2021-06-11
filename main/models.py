@@ -4,12 +4,12 @@ from .utils import current_time
 
 class Instance(models.Model):
     email = models.EmailField(default='info@kayaccountingclinic.com')
-    phone = models.CharField(max_length=22, default='+234-803-4556-488')
+    phone = models.CharField(max_length=22, default='+2347011540697')
     address = models.CharField(max_length=100, default='some address, Lagos Nigeria')
-    facebook = models.URLField(default='www.facebook.com')
-    instagram = models.URLField(default='www.instagram.com')
-    linkedin = models.URLField(default='www.linkedin.com')
-    twitter = models.URLField(default='www.twitter.com')
+    facebook = models.URLField(default='https://www.facebook.com', help_text="Add http or https to the url")
+    instagram = models.URLField(default='https://www.instagram.com', help_text="Add http or https to the url")
+    linkedin = models.URLField(default='https://www.linkedin.com', help_text="Add http or https to the url")
+    twitter = models.URLField(default='https://www.twitter.com', help_text="Add http or https to the url")
 
     class Meta:
         verbose_name = 'Kay Accounting'
