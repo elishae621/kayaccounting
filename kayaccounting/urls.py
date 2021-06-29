@@ -39,10 +39,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('contact/', ContactView.as_view(), name='contact'),
-    # path('about/', cache_page(120)(AboutView.as_view()), name='about'),
-    # path('services/', cache_page(120)(ServicesView.as_view()), name='services'),
-    # path('privacy/', cache_page(120)(PrivacyView.as_view()), name='privacy'),
-    # path('terms/', cache_page(120)(TermsView.as_view()), name='terms'),
 
     path('sitemap.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
