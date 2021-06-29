@@ -20,8 +20,7 @@ from django.contrib.sitemaps import views
 from django.views.decorators.cache import cache_page
 from django.urls import path, include, re_path
 from kayaccounting.sitemaps import StaticViewSitemap
-from main.views import (
-    AboutView, ContactView, HomeView, PrivacyView, ServicesView, TermsView, ComingSoonView
+from main.views import (ContactView, HomeView, ChatView, ComingSoonView
 )
 
 handler404 = 'main.views.error_404'
@@ -39,6 +38,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('contact/', ContactView.as_view(), name='contact'),
+    path('chat/', ChatView.as_view(), name='chat'),
+
 
     path('sitemap.xml', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 

@@ -24,7 +24,7 @@ with open(BASE_DIR / 'kay_config.json') as config_json:
 SECRET_KEY = config['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['kayaccountingclinic.com', 'www.kayaccountingclinic.com', 'localhost',]
 
@@ -88,16 +88,15 @@ WSGI_APPLICATION = 'kayaccounting.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'dbsqlite3'
-    # },
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kayaccounting$default',
-        'USER': 'kayaccounting',
-        'PASSWORD': config['DATABASE_PASSWORD'],
-        'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbsqlite3'
+        
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'kayaccounting$default',
+        # 'USER': 'kayaccounting',
+        # 'PASSWORD': config['DATABASE_PASSWORD'],
+        # 'HOST': 'kayaccounting.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -200,18 +199,6 @@ EXTRA_CHECKS = {
         'field-choices-constraint',
     ],
 }
-
-
-# Celery settings
-
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = "Africa/Lagos"
-CELERY_TASK_TRACK_STARTED = True
-CELERY_TASK_TIME_LIMIT = 30 * 60
-
 
 
 # Migration for Django Site Framework

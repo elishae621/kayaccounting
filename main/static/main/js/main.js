@@ -206,3 +206,15 @@
     })
 
 })(jQuery);
+
+$('.contact-us').on("click", function () {
+    $('#check').click();
+})
+
+if ($('.d-none.message').length) {
+    message = $('.d-none.message');
+    console.log(message.data(status))
+    alertify.notify(message.text(), message.data('status'), 10)
+  }
+  
+  

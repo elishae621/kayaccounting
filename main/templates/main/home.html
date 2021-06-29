@@ -23,9 +23,20 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'main/css/magnific-popup.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}"> <!-- Template Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="{% static 'main/css/responsive.css' %}"> <!-- Responsive Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/alertify.min.css' %}"> <!-- chat Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/themes/bootstrap.min.css' %}"> <!-- chat Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/chat.css' %}"> <!-- chat Stylesheet -->
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HR7BCYCMFD"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-HR7BCYCMFD'); </script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HR7BCYCMFD"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-HR7BCYCMFD');
+	</script>
 
 	<!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
@@ -45,7 +56,8 @@
 						<div class="col-lg-3">
 							<div class="logo">
 								<a href="#home">
-								    <img class="logo-pic" src="{% static 'main/images/logos/kay-logo.png' %}" alt="logo" />
+									<img class="logo-pic" src="{% static 'main/images/logos/kay-logo.png' %}"
+										alt="logo" />
 								</a>
 							</div>
 							<button class="mobile-menu-icon" aria-label="Main Menu">
@@ -67,7 +79,7 @@
 
 									<!-- <li><a href="#tcd-blog">Blog</a></li> -->
 
-									<li><a href="#footer">Contact</a></li>
+									<li><a class="contact-us">Contact</a></li>
 								</ul>
 								<div class="contact-menu">
 									<span class="icon"><img src="{% static 'main/images/arrows/phone.svg' %}"
@@ -104,8 +116,8 @@
 							Our Accounting "Doctors" will treat your books at a Peppercorn rate
 						</h2>
 						<div class="banner-btn">
-							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
-								class="primary-btn transparent">Contact Us</a>
+							<a href="#services" class="primary-btn mr-30">Read More</a><a
+								class="contact-us primary-btn transparent">Contact Us</a>
 						</div>
 					</div>
 					<div class="banner-content text-center">
@@ -113,8 +125,8 @@
 							Your One-stop Accounting Clinic
 						</h2>
 						<div class="banner-btn">
-							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
-								class="primary-btn transparent">Contact Us</a>
+							<a href="#services" class="primary-btn mr-30">Read More</a><a
+								class="contact-us primary-btn transparent">Contact Us</a>
 						</div>
 					</div>
 					<div class="banner-content text-center">
@@ -122,8 +134,8 @@
 							Trust the Accounting To Us. We are professionals.
 						</h2>
 						<div class="banner-btn">
-							<a href="#services" class="primary-btn mr-30">Read More</a><a href="#footer"
-								class="primary-btn transparent">Contact Us</a>
+							<a href="#services" class="primary-btn mr-30">Read More</a><a
+								class="contact-us primary-btn transparent">Contact Us</a>
 						</div>
 					</div>
 				</div>
@@ -144,8 +156,9 @@
 			<div class="col-lg-6 padding-0">
 				<div class="about-content">
 					<h2 class="mb-25">Learn About Us</h2>
-					<p class="mb-20">We are a virtual accounting clinic for small businesses, we provide specialized accounting & adhoc support,
-					we are a partner and an asset to your business.</p>
+					<p class="mb-20">We are a virtual accounting clinic for small businesses, we provide specialized
+						accounting & adhoc support,
+						we are a partner and an asset to your business.</p>
 				</div>
 			</div>
 		</div>
@@ -205,7 +218,7 @@
 						<div class="service-text">
 							<h4 class="title"><a>In-house Training</a></h4>
 							<p class="desc">Although we offer an affordable monthly booking service,
-							We are happy to offer training to your bookkeeper.</p>
+								We are happy to offer training to your bookkeeper.</p>
 						</div>
 					</div>
 				</div>
@@ -220,7 +233,7 @@
 			<img src="{% static 'main/images/new/video-img.jpg' %}" alt="Video Bg Image">
 		</div>
 		<div class="video-icon">
-			<a id="play-home-video" class="video-play-button" href="#footer">
+			<a id="play-home-video" class="video-play-button contact-us">
 				<!-- <img src="{% static 'main/images/video-icon.svg' %}" alt="Video Icon"> -->
 			</a>
 			<p class="video-txt">Take advantage of us</p>
@@ -244,7 +257,8 @@
 					<div class="feature-text">
 						<span class="water-text">01</span>
 						<h4 class="title"><a>Limit Number of clients</a></h4>
-						<span class="desc">By limiting our scope to small businesses, we are able to provide excellent service at all times.</span>
+						<span class="desc">By limiting our scope to small businesses, we are able to provide excellent
+							service at all times.</span>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -254,7 +268,8 @@
 					<div class="feature-text">
 						<span class="water-text">02</span>
 						<h4 class="title"><a class="second">We don't do one cap fits all</a></h4>
-						<span class="desc">We understand small businesses have unique issues, we tailor our services to meet your unique business needs.</span>
+						<span class="desc">We understand small businesses have unique issues, we tailor our services to
+							meet your unique business needs.</span>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -264,7 +279,8 @@
 					<div class="feature-text">
 						<span class="water-text">03</span>
 						<h4 class="title"><a>Numerical Accuracy</a></h4>
-						<span class="desc">We understand that acccuracy is pivotal to business decision making, we plan out work to enable quality review.</span>
+						<span class="desc">We understand that acccuracy is pivotal to business decision making, we plan
+							out work to enable quality review.</span>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -290,7 +306,8 @@
 				<div class="testi-slider owl-carousel">
 					<div class="testi-item">
 						<div class="testi-img">
-							<img class="img" src="{% static 'main/images/new/kay-reviewwe.png' %}" alt="Testimonial Image">
+							<img class="img" src="{% static 'main/images/new/kay-reviewwe.png' %}"
+								alt="Testimonial Image">
 						</div>
 						<div class="testi-info">
 							<h6 class="title">Olayiwola Nureni Olawale</h6>
@@ -298,7 +315,8 @@
 						</div>
 						<div class="testi-desc">
 							<p>Professional and timely services, Kay accounting Clinic has been managing our accounting
-								for four years now and in this time we have had no reason to worry about bookkeeping.</p>
+								for four years now and in this time we have had no reason to worry about bookkeeping.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -315,10 +333,12 @@
 					<div class="footer-widget">
 						<div class="footer-logo">
 							<a href="#home">
-							    <img class="logo-pic" src="{% static 'main/images/logos/logo-white.png' %}" alt="logo" />
+								<img class="logo-pic" src="{% static 'main/images/logos/logo-white.png' %}"
+									alt="logo" />
 							</a>
 						</div>
-						<p class="copyright-text">© 2021 <a href="#home">kayaccountingclinic.com</a>. All Rights Reserved.</p>
+						<p class="copyright-text">© 2021 <a href="#home">kayaccountingclinic.com</a>. All Rights
+							Reserved.</p>
 						<div class="footer-social">
 							<ul class="social-icon">
 								<li><a href="{{config.instagram}}"><i class="fa fa-instagram"></i></a></li>
@@ -368,10 +388,22 @@
 	</div>
 	<!-- Footer End -->
 
-	<!-- scrollUp start here-->
-	<div id="toTop">
-		<i class="fa fa-rocket"></i>
+
+	<input type="checkbox" id="check"> <label class="chat-btn" for="check"> <i class="las la-envelope envelope"></i><i
+			class="fa fa-commenting-o comment"></i></label>
+	<div class="wrapper d-none">
+		<div class="chat-header">
+			<h6>Let's Chat - Online</h6>
+		</div>
+		<div class="text-center p-2"> <span>Please fill out the form to start chat!</span> </div>
+		<form onsubmit="return false;" class="chat-form">
+			{% csrf_token %}
+			<input type="text" class="form-control text-dark" name='name' required placeholder="Name"> <input
+				type="text" required name='email' class="form-control text-dark" placeholder="Email"> <textarea
+				class="form-control text-dark" required name='message' placeholder="Your Text Message"></textarea>
+			<button onclick="send()" class="btn btn-success btn-block">Submit</button> </form>
 	</div>
+
 
 	<!-- modernizr v.3.5.0 js -->
 	<script src="{% static 'main/js/modernizr-3.5.0.min.js' %}"></script>
@@ -383,8 +415,11 @@
 	<!-- magnific js -->
 	<script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
 	<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'main/js/jquery-validation.js' %}"></script>
+	<script src="{% static 'main/js/alertify.min.js' %}"></script>
 	<!-- main js -->
 	<script src="{% static 'main/js/main.js' %}"></script>
+	<script src="{% static 'main/js/chat.js' %}"></script>
 </body>
 
 </html>

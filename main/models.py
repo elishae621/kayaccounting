@@ -25,7 +25,7 @@ class ContactMessage(models.Model):
     name = models.CharField(max_length=40, null=True)
     email = models.EmailField(null=True, blank=True)
     phone = models.CharField(max_length=15, null=True)
-    content = models.TextField(null=True)
+    message = models.TextField(null=True)
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=15, choices=MessageStatus.choices, default=MessageStatus.NEW)

@@ -1,9 +1,7 @@
-from django.http.response import HttpResponseRedirect
-from django.views.generic import TemplateView
-from main.forms import ContactForm
-from django.shortcuts import render
+from django.http.response import HttpResponseRedirect, JsonResponse
+from django.views.generic import TemplateView, View
 from django.contrib import messages
-from main.models import Subscriber
+from main.models import Subscriber, ContactMessage
 
 
 
@@ -19,10 +17,6 @@ def error_404(request, exception):
 class HomeView(TemplateView):
     template_name = 'main/home.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["cf_form"] = ContactForm()
-    #     return context
 
 
 class AboutView(TemplateView):
@@ -40,13 +34,6 @@ class FaqView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'main/contact.html'
 
-    # def post(self, request, *args, **kwargs):
-    #     form = ContactForm(request.POST)
-    #     if form.is_valid():
-    #         value = form.save()
-    #     messages.add_message(request, messages.SUCCESS, 'We would reply as soon as possible')
-    #     return HttpResponseRedirect('/')
-
     def get(self, request, *args, **kwargs):
         try:
             Subscriber.objects.create(email=request.GET.get('email'))
@@ -56,16 +43,27 @@ class ContactView(TemplateView):
             pass
         return HttpResponseRedirect('/')
 
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["cf_form"] = ContactForm()
-    #     return context
-
-
 class PrivacyView(TemplateView):
     template_name = 'main/privacy.html'
 
 
 class TermsView(TemplateView):
     template_name = 'main/terms.html'
+
+
+
+class ChatView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponseRedirect('/')
+
+    def post(self, request, *args, **kwargs):
+        contactMessage = ContactMessage.objects.create(
+            name=request.POST.get('name'),
+            email=request.POST.get('email'),
+            message=request.POST.get('message')
+        )
+        return JsonResponse({
+                'ok': True,
+                'message': "Your message has been received, we would apply by email as soon as possible"
+            })
+        
