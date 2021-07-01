@@ -2,6 +2,11 @@ from django.http.response import HttpResponseRedirect, JsonResponse
 from django.views.generic import TemplateView, View
 from django.contrib import messages
 from main.models import Subscriber, ContactMessage
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+import json
+with open(settings.BASE_DIR / 'kay_config.json') as config_json:
+    config = json.load(config_json)
 
 
 
@@ -17,23 +22,7 @@ def error_404(request, exception):
 class HomeView(TemplateView):
     template_name = 'main/home.html'
 
-
-
-class AboutView(TemplateView):
-    template_name = 'main/about.html'
-
-
-class ServicesView(TemplateView):
-    template_name = 'main/services.html'
-
-
-class FaqView(TemplateView):
-    template_name = 'main/faq.html'
-
-
-class ContactView(TemplateView):
-    template_name = 'main/contact.html'
-
+class ContactView(View):
     def get(self, request, *args, **kwargs):
         try:
             Subscriber.objects.create(email=request.GET.get('email'))
@@ -43,13 +32,35 @@ class ContactView(TemplateView):
             pass
         return HttpResponseRedirect('/')
 
-class PrivacyView(TemplateView):
-    template_name = 'main/privacy.html'
+class OrderView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponseRedirect('/')
 
-
-class TermsView(TemplateView):
-    template_name = 'main/terms.html'
-
+    def post(self, request, *args, **kwargs):
+        form = request.POST.get('form')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        number = request.POST.get('number')
+        service = request.POST.get('service')
+        packages = request.POST.get('packages')
+        if form == "Bookkeeping":
+            text_message = f"Order type:\t{form}\n\nname:\t{name}\n\nemail:\t{email}\n\nphone:\t{phone}"
+        elif form == "Payroll support":
+            text_message = f"Order type:\t{form}\n\nname:\t{name}\n\nemail:\t{email}\n\nphone:\t{phone}\n\nnumber of employees:\t{number}"
+        elif form == "Business support": 
+            text_message = f"Order type:\t{form}\n\nname:\t{name}\n\nemail:\t{email}\n\nphone:\t{phone}\n\nspecific service:\t{service}"
+        else: 
+            text_message = f"Order type:\t{form}\n\nname:\t{name}\n\nemail:\t{email}\n\nphone:\t{phone}\n\nnumber of employees:\t{number}\n\ntraining packages:\t{packages}"
+        title = f"{form} order was entered"
+        text_message = text_message
+        from_email = config['MAIL_USERNAME']
+        to_email = config['CLIENT']
+        msg = EmailMultiAlternatives(
+            title, text_message, from_email, to_email)
+        value = msg.send(fail_silently=False)
+        messages.add_message(request, messages.SUCCESS, f'Your {form} order has been received we would reply as soon as possible')
+        return HttpResponseRedirect('/')
 
 
 class ChatView(View):

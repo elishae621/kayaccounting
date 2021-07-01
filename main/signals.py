@@ -2,7 +2,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from main.models import ContactMessage, Mail, Subscriber
 from django.conf import settings
-# from .tasks import async_notify_of_registration, async_auto_reply_contactMessage
 from django.core.mail import EmailMultiAlternatives
 
 
