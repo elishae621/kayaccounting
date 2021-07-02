@@ -14,11 +14,3 @@ class AddConfigToAllContext():
     def process_template_response(self, request, response):
         response.context_data['config'] = self.instance
         return response
-
-    def process_view(self, request, view_func, view_args, view_kwargs):
-        try:
-            if view_func.view_class:
-                view_kwargs.update({'config': self.instance})
-        except AttributeError:
-            pass
-

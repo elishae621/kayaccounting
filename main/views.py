@@ -9,7 +9,6 @@ with open(settings.BASE_DIR / 'kay_config.json') as config_json:
     config = json.load(config_json)
 
 
-
 class ComingSoonView(TemplateView):
     template_name = 'main/coming_soon.html'
 
@@ -55,7 +54,7 @@ class OrderView(View):
         title = f"{form} order was entered"
         text_message = text_message
         from_email = config['MAIL_USERNAME']
-        to_email = config['CLIENT']
+        to_email = [config['CLIENT']]
         msg = EmailMultiAlternatives(
             title, text_message, from_email, to_email)
         value = msg.send(fail_silently=False)

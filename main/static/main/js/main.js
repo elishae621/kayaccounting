@@ -217,4 +217,6 @@ if ($('.d-none.message').length) {
     alertify.notify(message.text(), message.data('status'), 10)
   }
   
-  
+
+bookkeeping_height = $('.pricing-list').height();
+$('.pricing-list').height(bookkeeping_height);

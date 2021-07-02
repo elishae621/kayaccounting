@@ -162,6 +162,12 @@
     border-bottom: 1px solid #d9d9d8
 }
 
+.pricingTable10 .pricing-content .pricing-list {
+    font-size: 15px;
+    font-weight: 700;
+    color: #777473;
+}
+
 .pricingTable10 .pricing-content ul li:last-child {
     border-bottom: none
 }

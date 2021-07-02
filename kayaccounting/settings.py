@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     'main.apps.MainConfig',
+
+    'ckeditor',
+    'simple_mail',
 ]
 
 
@@ -53,7 +56,6 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -163,44 +165,6 @@ DEFAULT_TO_EMAIL = EMAIL_HOST_USER
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
-
-# django-extra-checks
-# https://github.com/kalekseev/django-extra-checks/
-
-EXTRA_CHECKS = {
-    'checks': [
-        # Forbid 'unique_together':
-        'no-unique-together',
-
-        # Require non empty 'upload_to' argument:
-        'field-file-upload-to',
-        # Use the indexed option instead:
-        'no-index-together',
-
-        # Each model must be registered in admin:
-        'model-admin',
-        # FileField/ImageField must have non empty 'upload_to' argument:
-        'field-file-upload-to',
-
-        # Text fields shouldn't use 'null=True':
-        'field-text-null',
-        # Prefer using BooleanField(null=True) instead of NullBooleanField:
-        'field-boolean-null',
-        # Don't pass 'null=Flase' to model fileds (this is django default)
-        'field-null',
-        # ForeignKey fields must specify db_index explicitly if used in
-        # other indexed:
-        {'id': 'field-foreign-key-db-index', 'when': 'indexes'},
-        # If field nullable '(null=True)',
-        # then default=None argument is redundant and should be removed:
-        'field-default-null',
-        # Fields with choices must have companion CheckConstraint
-        # to enforce choices on database level
-        'field-choices-constraint',
-    ],
-}
-
-
 # Migration for Django Site Framework
 MIGRATION_MODULES = {
     'sites': 'kayaccounting.fixtures.sites_migrations',
@@ -210,85 +174,7 @@ MIGRATION_MODULES = {
 # others
 ADMINS = [('Elisha', 'elishae621@gmail.com'),]
 
+# django simple mail settings
 
-# Caching
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
-
-
-# logging
-
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'default': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/default.log',
-#         },
-#         'request_handler': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/django_request.log',
-#         },
-#         'server_handler': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/django_server.log',
-#         },
-#         'template_handler': {
-#             'level': 'ERROR',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/django_template.log',
-#         },
-#         'database_handler': {
-#             'level': 'ERROR',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/django_database.log',
-#         },
-#         'security_handler': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '/home/kayaccounting/kayaccounting/logs/django_security.log',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['default'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         'django.request': {
-#             'handlers': ['request_handler'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         'django.server': {
-#             'handlers': ['server_handler'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         'django.template': {
-#             'handlers': ['template_handler'],
-#             'level': 'ERROR',
-#             'propagate': True,
-#         },
-#         # 'django.db.backends': {
-#         #     'handlers': ['database_handler'],
-#         #     'level': 'ERROR',
-#         #     'propagate': True,
-#         # },
-#         'django.security': {
-#             'handlers': ['security_handler'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-
-# }
-
+SIMPLE_MAIL_USE_CKEDITOR = True
+SIMPLE_MAIL_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
